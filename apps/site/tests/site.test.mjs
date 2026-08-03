@@ -43,9 +43,9 @@ test("the landing page states the complete public capability story", () => {
   }
 });
 
-test("public copy matches the implemented pre-release surface", () => {
+test("public copy matches the released v0.1.0 surface", () => {
   const publicCopy = `${html}\n${docsHtml}`;
-  assert.match(html, /PUBLIC V0\.1 PRE-RELEASE/u);
+  assert.match(html, /PUBLIC V0\.1\.0 RELEASE/u);
   assert.match(html, /SYNTHETIC RUN DETAIL/u);
   assert.match(html, />\s*runs · ALLOWLIST · LIMIT 50/u);
   assert.match(html, /on-demand provider\s+diagnostics/iu);
@@ -60,6 +60,10 @@ test("public copy matches the implemented pre-release surface", () => {
   assert.doesNotMatch(publicCopy, /isolated Replicant workspaces/iu);
   assert.doesNotMatch(
     publicCopy,
+    /PRE-RELEASE|RELEASE GATE (?:IS STILL )?OPEN|SOURCE PUBLICATION REMAINS GATED/iu,
+  );
+  assert.doesNotMatch(
+    publicCopy,
     /approval[^.]*cancellation[^.]*still (?:being )?(?:completed|completing)/iu,
   );
 });
@@ -72,8 +76,9 @@ test("the documentation destination is a real, status-honest first-party page", 
   assert.match(docsHtml, /id="data-boundaries"/u);
   assert.match(docsHtml, /id="installation"/u);
   assert.match(docsHtml, /pnpm run doctor/u);
-  assert.match(docsHtml, /not\s+a\s+supported tagged release/iu);
-  assert.match(docsHtml, /release gate is still open/iu);
+  assert.match(docsHtml, /v0\.1\.0 is released/iu);
+  assert.match(docsHtml, /OWNER WAIVER RECORDED/u);
+  assert.match(docsHtml, /no\s+independent reviewer approvals are claimed/iu);
   assert.doesNotMatch(docsHtml, /ready for production/iu);
   assert.match(sitemap, /https:\/\/replicantos\.com\/docs\//u);
 });
@@ -82,14 +87,14 @@ test("the landing page presents an honest self-hosted installation path", () => 
   assert.match(html, /id="install"/u);
   assert.match(
     html,
-    /git clone https:\/\/github\.com\/replicantos\/replicantos\.git/u,
+    /git clone --branch v0\.1\.0 --depth 1 https:\/\/github\.com\/replicantos\/replicantos\.git/u,
   );
   assert.match(html, /pnpm install --frozen-lockfile/u);
   assert.match(html, /pnpm build/u);
   assert.match(html, /pnpm run doctor/u);
   assert.match(html, /pnpm start/u);
   assert.match(html, /never hosts a\s+workspace or agent session/iu);
-  assert.match(html, /PRE-RELEASE SOURCE PATH/u);
+  assert.match(html, /SUPPORTED SOURCE PATH/u);
   assert.doesNotMatch(html, /cloud-hosted|managed workspace|sign up/iu);
 });
 

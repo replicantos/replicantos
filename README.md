@@ -6,14 +6,14 @@ ReplicantOS is a self-hosted control plane for persistent AI agents. It brings m
 
 The public edition is free and open-source under the MIT License. ReplicantOS does not host user workspaces or provide a SaaS; installations run on infrastructure controlled by their operators.
 
-> This clean-room public edition is under active development. The source-build path below is available for review, but it is not a supported tagged release until the public release gate closes.
+The supported public release is [`v0.1.0`](https://github.com/replicantos/replicantos/releases/tag/v0.1.0). It is a source-built, self-hosted release; operators remain responsible for their host, provider runtimes, credentials, backups, and network perimeter.
 
 ## Install from source
 
 ReplicantOS runs on your own host; `replicantos.com` does not host workspaces or an application service. The current installation path uses Node.js 22 or newer and the pnpm version pinned by this repository:
 
 ```sh
-git clone https://github.com/replicantos/replicantos.git
+git clone --branch v0.1.0 --depth 1 https://github.com/replicantos/replicantos.git
 cd replicantos
 corepack enable
 pnpm install --frozen-lockfile
@@ -64,6 +64,6 @@ The deterministic database seed is `packages/db/src/demo-seed.ts`; the offline, 
 
 Architecture, security, and release invariants are documented in [`docs/`](docs/).
 
-## Development status
+## Release status
 
-The source-build operator flow and deterministic live browser journey—including runtime dispatch, approvals, cancellation, diagnostics, permissions, and persistence—are implemented. Publication remains gated on a clean committed release `HEAD`, the clean-clone archive verifier, ten reviewed and promoted screenshots, a reviewed credential-exposure disposition, and two independent `HEAD`-bound release reviews documented in [`docs/PRIVACY_RELEASE_GATE.md`](docs/PRIVACY_RELEASE_GATE.md).
+ReplicantOS `v0.1.0` is the first supported source release. Its release record is bound to a clean committed `HEAD` and documents the clean-clone archive audit, ten promoted synthetic screenshots, the credential-exposure disposition, and the project owner's explicit waiver of the default two-independent-reviewer gate. The waiver does not claim that independent reviews occurred and does not waive any automated privacy, dependency, browser, or archive check; see [`docs/PRIVACY_RELEASE_GATE.md`](docs/PRIVACY_RELEASE_GATE.md).

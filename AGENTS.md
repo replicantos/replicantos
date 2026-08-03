@@ -13,8 +13,8 @@ These instructions apply to the entire repository.
 
 ## Product boundary
 
-- ReplicantOS v1 is a self-hosted, single-workspace application with multiple users and multiple Replicants.
-- SQLite is the v1 source of truth. Code must preserve a future storage boundary without pretending PostgreSQL is currently supported.
+- ReplicantOS v0.1 is a self-hosted, single-workspace application with multiple users and multiple Replicants.
+- SQLite is the v0.1 source of truth. Code must preserve a future storage boundary without pretending PostgreSQL is currently supported.
 - Harness-specific behavior belongs in `packages/harnesses`. Product code consumes only the normalized harness contract.
 - Authorization is enforced server-side for HTTP, WebSocket, file, database, task, schedule, and harness operations. UI hiding is never an authorization control.
 - Terminal, file mutation, database inspection, credential management, and administrative scheduling are privileged capabilities and default to owner/admin access.
@@ -34,5 +34,5 @@ These instructions apply to the entire repository.
 
 - Keep this repository's history independent from every private source repository.
 - Use a non-personal ReplicantOS maintainer identity for commits intended for publication.
-- Do not make the repository public until credential exposure is reviewed, the disposition confirms either no known exposure or rotation of every known exposed credential, and the release checklist has two independent approvals.
+- Do not make the repository public until credential exposure is reviewed, the disposition confirms either no known exposure or rotation of every known exposed credential, and the release checklist has either two independent approvals or an explicit repository-owner waiver bound to the exact release `HEAD`. A waiver never substitutes for the automated privacy and archive audit.
 - Keep commits focused and do not mix generated launch media with unrelated product changes.

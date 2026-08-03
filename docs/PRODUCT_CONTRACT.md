@@ -1,6 +1,6 @@
 # Public Product Contract
 
-Status: confirmed public v0.1 product model; implementation remains pre-release until every release invariant passes.
+Status: released as `v0.1.0`; this document defines the supported public v0.1 product boundary.
 
 ## Product promise
 

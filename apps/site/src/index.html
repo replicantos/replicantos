@@ -62,7 +62,7 @@
       <span aria-hidden="true">/</span>
       <span>NO TELEMETRY BY DEFAULT</span>
       <span aria-hidden="true">/</span>
-      <span>PUBLIC V0.1 PRE-RELEASE</span>
+      <span>PUBLIC V0.1.0 RELEASE</span>
     </div>
 
     <header class="site-header">
@@ -385,9 +385,8 @@
               run lifecycle. Adapter sessions, output, tools, approval requests,
               usage, and failures are normalized internally. Authenticated
               approval decisions, authorized cancellation, and on-demand doctor
-              results are implemented in the pre-release source; each provider
-              still requires its supported host runtime and provider-native
-              authentication.
+              results are implemented in v0.1.0; each provider still requires
+              its supported host runtime and provider-native authentication.
             </p>
           </div>
 
@@ -885,7 +884,7 @@
               </h2>
             </div>
             <div>
-              <p class="install-status">PRE-RELEASE SOURCE PATH</p>
+              <p class="install-status">SUPPORTED SOURCE PATH</p>
               <p>
                 ReplicantOS runs on your host, next to the local harnesses and
                 files you choose to approve. This website never hosts a
@@ -896,13 +895,13 @@
 
           <div class="install-panel">
             <div class="install-panel-top">
-              <span>SOURCE BUILD / REVIEW PATH</span>
+              <span>SOURCE BUILD / V0.1.0</span>
               <span>NODE 22+ · PNPM 10.32.1</span>
             </div>
             <pre
               class="install-command"
-              aria-label="Pre-release ReplicantOS source installation commands"
-            ><code>git clone https://github.com/replicantos/replicantos.git
+              aria-label="ReplicantOS v0.1.0 source installation commands"
+            ><code>git clone --branch v0.1.0 --depth 1 https://github.com/replicantos/replicantos.git
 cd replicantos
 corepack enable
 pnpm install --frozen-lockfile
@@ -911,9 +910,8 @@ pnpm build
 pnpm run doctor
 pnpm start</code></pre>
             <p>
-              These commands become the supported source installation path only
-              after the public release gate closes. Until then, the repository
-              may be unavailable or contain pre-release code.
+              These commands install the supported v0.1.0 source tag. Review the
+              operator guide before exposing an installation beyond its host.
             </p>
           </div>
 
@@ -966,17 +964,20 @@ pnpm start</code></pre>
         <div class="launch-mark">
           <img src="/assets/mark.svg" width="64" height="64" alt="" />
         </div>
-        <p class="eyebrow">THE CONTROL PLANE IS OPENING</p>
+        <p class="eyebrow">THE CONTROL PLANE IS OPEN</p>
         <h2 id="launch-title">
           Your agents are ready<br /><span>for an operating system.</span>
         </h2>
         <p class="launch-copy">
-          Follow the clean-room public build, read the architecture, and help
+          Install the tagged public release, read the architecture, and help
           shape a durable home for self-hosted agents.
         </p>
         <div class="hero-actions launch-actions">
-          <a class="button button-primary" href="{{GITHUB_URL}}">
-            <span>View on GitHub</span
+          <a
+            class="button button-primary"
+            href="{{GITHUB_URL}}/releases/tag/v0.1.0"
+          >
+            <span>View v0.1.0</span
             ><span class="button-arrow" aria-hidden="true">↗</span>
           </a>
           <a class="button button-secondary" href="{{DOCS_URL}}">
@@ -985,8 +986,8 @@ pnpm start</code></pre>
           </a>
         </div>
         <p class="release-note">
-          PUBLIC DESTINATIONS ARE CONFIRMED. SOURCE PUBLICATION REMAINS GATED ON
-          FINAL RELEASE REVIEW.
+          V0.1.0 IS PUBLIC UNDER MIT. WORKSPACES AND AGENT SESSIONS REMAIN ON
+          OPERATOR-CONTROLLED INFRASTRUCTURE.
         </p>
       </section>
     </main>

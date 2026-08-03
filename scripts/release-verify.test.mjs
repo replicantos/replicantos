@@ -31,20 +31,121 @@ function approval(reviewerId) {
 
 function approvals() {
   return {
-    version: 2,
+    version: 3,
     head,
     repository: "replicantos/replicantos",
     license: "MIT",
     distribution: "self-hosted-only",
     credentialExposureDisposition: "no-known-credential-exposure",
     githubNamespaceAuthorizationConfirmed: true,
+    reviewGateDisposition: "two-independent-reviewers",
+    ownerWaiver: null,
     approvals: [approval("reviewer-one"), approval("reviewer-two")],
+  };
+}
+
+function ownerWaiver() {
+  return {
+    ...approvals(),
+    reviewGateDisposition: "owner-waived",
+    ownerWaiver: {
+      waivedBy: "repository-owner",
+      waivedHead: head,
+      scope: "two-independent-reviewers",
+      acceptedCredentialExposureDisposition: "no-known-credential-exposure",
+      acceptedLicenseExceptions: [exception],
+    },
+    approvals: [],
   };
 }
 
 test("accepts two complete independent approvals bound to HEAD", () => {
   assert.doesNotThrow(() =>
     validateReleaseApprovals(approvals(), head, [exception]),
+  );
+});
+
+test("accepts an explicit owner waiver without fabricating reviewers", () => {
+  assert.doesNotThrow(() =>
+    validateReleaseApprovals(ownerWaiver(), head, [exception]),
+  );
+
+  const noException = ownerWaiver();
+  noException.ownerWaiver.acceptedLicenseExceptions = [];
+  assert.doesNotThrow(() => validateReleaseApprovals(noException, head, []));
+
+  assert.doesNotThrow(() =>
+    validateReleaseApprovals(ownerWaiver(), head, null),
+  );
+});
+
+test("owner waivers are exact, HEAD-bound, and mutually exclusive with reviews", () => {
+  const wrongHead = ownerWaiver();
+  wrongHead.ownerWaiver.waivedHead = "b".repeat(40);
+  assert.throws(
+    () => validateReleaseApprovals(wrongHead, head, [exception]),
+    /owner waiver/u,
+  );
+
+  const incomplete = ownerWaiver();
+  delete incomplete.ownerWaiver.scope;
+  assert.throws(
+    () => validateReleaseApprovals(incomplete, head, [exception]),
+    /owner waiver/u,
+  );
+
+  const unacceptedException = ownerWaiver();
+  unacceptedException.ownerWaiver.acceptedLicenseExceptions = [];
+  assert.throws(
+    () => validateReleaseApprovals(unacceptedException, head, [exception]),
+    /license exceptions/u,
+  );
+
+  const fabricatedReview = ownerWaiver();
+  fabricatedReview.approvals = [approval("reviewer-one")];
+  assert.throws(
+    () => validateReleaseApprovals(fabricatedReview, head, [exception]),
+    /cannot contain reviewer approvals/u,
+  );
+
+  const wrongDisposition = ownerWaiver();
+  wrongDisposition.ownerWaiver.acceptedCredentialExposureDisposition =
+    "all-known-exposed-credentials-rotated";
+  assert.throws(
+    () => validateReleaseApprovals(wrongDisposition, head, [exception]),
+    /owner waiver/u,
+  );
+
+  const unknownMode = ownerWaiver();
+  unknownMode.reviewGateDisposition = "unsigned";
+  assert.throws(
+    () => validateReleaseApprovals(unknownMode, head, [exception]),
+    /disposition is invalid/u,
+  );
+});
+
+test("owner waiver license exceptions are well formed and exact", () => {
+  for (const invalid of [
+    null,
+    exception,
+    [exception, exception],
+    [exception, 42],
+    [exception, ""],
+    [exception, " unexpected"],
+  ]) {
+    const record = ownerWaiver();
+    record.ownerWaiver.acceptedLicenseExceptions = invalid;
+    assert.throws(
+      () => validateReleaseApprovals(record, head, [exception]),
+      /unique nonempty identifiers/u,
+    );
+  }
+
+  const extra = ownerWaiver();
+  extra.ownerWaiver.acceptedLicenseExceptions.push("unexpected-exception");
+  assert.throws(
+    () => validateReleaseApprovals(extra, head, [exception]),
+    /explicitly accept all required/u,
   );
 });
 
@@ -157,7 +258,7 @@ test("rejects wrong commits, missing credential disposition, and unreviewed lice
 
 test("rejects legacy approval schema versions", () => {
   const legacy = approvals();
-  legacy.version = 1;
+  legacy.version = 2;
   assert.throws(
     () => validateReleaseApprovals(legacy, head, [exception]),
     /approval format/u,
@@ -180,8 +281,11 @@ test("release subprocess environment drops unrelated credentials", () => {
 });
 
 test("release audit mode is explicit and fail-closed", () => {
-  const { auditModeForArguments, requireIntentionalAudit } =
-    releaseVerifierInternalsForTest;
+  const {
+    auditModeForArguments,
+    releaseReviewStatus,
+    requireIntentionalAudit,
+  } = releaseVerifierInternalsForTest;
   assert.equal(auditModeForArguments([]), "release");
   assert.equal(auditModeForArguments(["--preflight"]), "preflight");
   assert.throws(() => auditModeForArguments(["--unknown"]), /unknown option/u);
@@ -207,6 +311,9 @@ test("release audit mode is explicit and fail-closed", () => {
     () => requireIntentionalAudit("preflight", {}),
     /ALLOW_RELEASE_PREFLIGHT/u,
   );
+  assert.equal(releaseReviewStatus(true, null), "pending");
+  assert.equal(releaseReviewStatus(false, ownerWaiver()), "owner-waived");
+  assert.equal(releaseReviewStatus(false, approvals()), "verified");
 });
 
 test("release audit remains fail-closed through a symlinked entry path", async (t) => {

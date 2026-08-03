@@ -1,11 +1,13 @@
 {
-  "version": 2,
+  "version": 3,
   "head": "0000000000000000000000000000000000000000",
   "repository": "replicantos/replicantos",
   "license": "MIT",
   "distribution": "self-hosted-only",
   "credentialExposureDisposition": null,
   "githubNamespaceAuthorizationConfirmed": false,
+  "reviewGateDisposition": "two-independent-reviewers",
+  "ownerWaiver": null,
   "approvals": [
     {
       "reviewerId": "reviewer-one",

@@ -60,5 +60,6 @@ test("landing page explains the system, harnesses, and security on desktop and m
       name: /One place for agents.*to keep working/i,
     }),
   ).toBeVisible();
-  await expect(page.getByText(/release gate is still open/i)).toBeVisible();
+  await expect(page.getByText(/v0\.1\.0 is released/i)).toBeVisible();
+  await expect(page.getByText(/OWNER WAIVER RECORDED/i)).toBeVisible();
 });

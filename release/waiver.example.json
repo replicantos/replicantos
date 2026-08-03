@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "head": "0000000000000000000000000000000000000000",
+  "repository": "replicantos/replicantos",
+  "license": "MIT",
+  "distribution": "self-hosted-only",
+  "credentialExposureDisposition": null,
+  "githubNamespaceAuthorizationConfirmed": false,
+  "reviewGateDisposition": "owner-waived",
+  "ownerWaiver": {
+    "waivedBy": "repository-owner",
+    "waivedHead": "0000000000000000000000000000000000000000",
+    "scope": "two-independent-reviewers",
+    "acceptedCredentialExposureDisposition": null,
+    "acceptedLicenseExceptions": []
+  },
+  "approvals": []
+}

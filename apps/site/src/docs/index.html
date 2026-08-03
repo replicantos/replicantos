@@ -50,9 +50,9 @@
     <div class="system-line" role="status" aria-label="Documentation status">
       <span>PUBLIC DOCUMENTATION</span>
       <span aria-hidden="true">/</span>
-      <span>V0.1 PRE-RELEASE</span>
+      <span>V0.1.0 RELEASE</span>
       <span aria-hidden="true">/</span>
-      <span>RELEASE GATE OPEN</span>
+      <span>SUPPORTED SOURCE TAG</span>
     </div>
 
     <header class="site-header">
@@ -93,7 +93,7 @@
     <main class="docs-layout" id="main-content">
       <aside class="docs-index" aria-label="On this page">
         <p>DOCS / 001</p>
-        <strong>Public v0.1</strong>
+        <strong>Public v0.1.0</strong>
         <nav>
           <a href="#overview">Overview</a>
           <a href="#concepts">Core concepts</a>
@@ -116,7 +116,7 @@
             durable, permission-checked workspace without turning provider
             credentials or private machine data into a hosted service.
           </p>
-          <div class="docs-status" aria-label="Public v0.1 status">
+          <div class="docs-status" aria-label="Public v0.1.0 status">
             <span>FREE / MIT</span>
             <span>SELF-HOSTED</span>
             <span>ONE WORKSPACE / INSTALL</span>
@@ -381,8 +381,8 @@ ReplicantOS server ─── SQLite / audit
             </p>
             <pre
               class="architecture-map installation-commands"
-              aria-label="Pre-release ReplicantOS source installation commands"
-            ><code>git clone https://github.com/replicantos/replicantos.git
+              aria-label="ReplicantOS v0.1.0 source installation commands"
+            ><code>git clone --branch v0.1.0 --depth 1 https://github.com/replicantos/replicantos.git
 cd replicantos
 corepack enable
 pnpm install --frozen-lockfile
@@ -391,9 +391,8 @@ pnpm build
 pnpm run doctor
 pnpm start</code></pre>
             <p class="docs-callout">
-              PRE-RELEASE: this path is available for review, but it is not a
-              supported tagged release until the public release gate closes. The
-              repository may be unavailable before publication.
+              RELEASE v0.1.0: this is the supported source tag. Review the full
+              operator guide before exposing an installation beyond its host.
             </p>
             <p>
               The default listener is <code>127.0.0.1:8787</code>. There is no
@@ -405,7 +404,7 @@ pnpm start</code></pre>
             <div class="hero-actions">
               <a
                 class="button button-primary"
-                href="{{GITHUB_URL}}/blob/main/docs/INSTALLATION.md"
+                href="{{GITHUB_URL}}/blob/v0.1.0/docs/INSTALLATION.md"
                 ><span>Full operator guide</span
                 ><span class="button-arrow" aria-hidden="true">↗</span></a
               >
@@ -420,27 +419,26 @@ pnpm start</code></pre>
         >
           <div class="docs-section-label"><span>07</span> RELEASE</div>
           <div>
-            <h2 id="status-title">The release gate is still open.</h2>
+            <h2 id="status-title">v0.1.0 is released.</h2>
             <p>
-              The source installation path is documented for review, but it is
-              not a supported release yet. A public release still requires a
-              committed clean head, zero known personal or private data,
-              promoted and manually reviewed synthetic launch visuals,
-              clean-clone archive verification, credential-exposure and GitHub
-              namespace dispositions, and two independent privacy approvals.
+              The supported source tag is bound to a committed clean head, zero
+              known personal or private data, promoted synthetic launch visuals,
+              clean-clone archive verification, and closed credential-exposure
+              and GitHub namespace dispositions. The project owner explicitly
+              waived the default two-independent-reviewer gate for v0.1.0; no
+              independent reviewer approvals are claimed.
             </p>
-            <div
-              class="release-checks"
-              aria-label="Release readiness requirements"
-            >
-              <span>✓ V0.1 SURFACE + MIT</span>
-              <span>◌ CLEAN-CLONE AUDIT</span>
-              <span>◌ CREDENTIALS + NAMESPACE</span>
-              <span>◌ TWO-PERSON REVIEW</span>
+            <div class="release-checks" aria-label="v0.1.0 release evidence">
+              <span>✓ V0.1.0 + MIT</span>
+              <span>✓ CLEAN-CLONE AUDIT</span>
+              <span>✓ CREDENTIALS + NAMESPACE</span>
+              <span>✓ OWNER WAIVER RECORDED</span>
             </div>
             <div class="hero-actions">
-              <a class="button button-primary" href="{{GITHUB_URL}}"
-                ><span>Follow the build</span
+              <a
+                class="button button-primary"
+                href="{{GITHUB_URL}}/releases/tag/v0.1.0"
+                ><span>View v0.1.0</span
                 ><span class="button-arrow" aria-hidden="true">↗</span></a
               >
               <a class="button button-secondary" href="/"
@@ -462,7 +460,7 @@ pnpm start</code></pre>
           alt="ReplicantOS"
         />
       </a>
-      <p>PUBLIC V0.1 DOCUMENTATION.</p>
+      <p>PUBLIC V0.1.0 DOCUMENTATION.</p>
       <nav aria-label="Footer navigation">
         <a href="{{GITHUB_URL}}">GitHub</a>
         <a href="/">Product</a>

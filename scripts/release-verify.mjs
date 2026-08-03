@@ -129,7 +129,35 @@ export function validateReleaseApprovals(
   head,
   requiredLicenseExceptions,
 ) {
-  if (!approvals || approvals.version !== 2)
+  const validateExceptionList = (value, label) => {
+    if (
+      !Array.isArray(value) ||
+      value.some(
+        (id) =>
+          typeof id !== "string" ||
+          id.length === 0 ||
+          id.trim() !== id ||
+          !/^[a-z0-9][a-z0-9._-]*$/u.test(id),
+      ) ||
+      new Set(value).size !== value.length
+    ) {
+      throw new Error(`${label} must be unique nonempty identifiers`);
+    }
+    return [...value].sort();
+  };
+  const requiredExceptions =
+    requiredLicenseExceptions == null
+      ? null
+      : validateExceptionList(
+          requiredLicenseExceptions,
+          "required dependency license exceptions",
+        );
+  const matchesRequiredExceptions = (accepted) =>
+    requiredExceptions === null ||
+    (accepted.length === requiredExceptions.length &&
+      accepted.every((id, index) => id === requiredExceptions[index]));
+
+  if (!approvals || approvals.version !== 3)
     throw new Error("release approval format is invalid");
   if (approvals.head !== head)
     throw new Error("release approvals are not bound to HEAD");
@@ -156,6 +184,45 @@ export function validateReleaseApprovals(
   if (approvals.githubNamespaceAuthorizationConfirmed !== true) {
     throw new Error(
       "GitHub namespace authorization must be confirmed before release",
+    );
+  }
+  if (approvals.reviewGateDisposition === "owner-waived") {
+    if (
+      !Array.isArray(approvals.approvals) ||
+      approvals.approvals.length !== 0
+    ) {
+      throw new Error(
+        "an owner-waived release cannot contain reviewer approvals",
+      );
+    }
+    const waiver = approvals.ownerWaiver;
+    if (
+      !waiver ||
+      waiver.waivedBy !== "repository-owner" ||
+      waiver.waivedHead !== head ||
+      waiver.scope !== "two-independent-reviewers" ||
+      waiver.acceptedCredentialExposureDisposition !==
+        approvals.credentialExposureDisposition
+    ) {
+      throw new Error("owner waiver is incomplete or not bound to HEAD");
+    }
+    const acceptedExceptions = validateExceptionList(
+      waiver.acceptedLicenseExceptions,
+      "owner waiver license exceptions",
+    );
+    if (!matchesRequiredExceptions(acceptedExceptions)) {
+      throw new Error(
+        "owner waiver must explicitly accept all required dependency license exceptions",
+      );
+    }
+    return;
+  }
+  if (approvals.reviewGateDisposition !== "two-independent-reviewers") {
+    throw new Error("release review-gate disposition is invalid");
+  }
+  if (approvals.ownerWaiver != null) {
+    throw new Error(
+      "reviewer-approved releases cannot contain an owner waiver",
     );
   }
   if (!Array.isArray(approvals.approvals) || approvals.approvals.length < 2) {
@@ -193,17 +260,25 @@ export function validateReleaseApprovals(
         );
       }
     }
-    const reviewedExceptions = new Set(
-      approval.reviewedLicenseExceptions ?? [],
+    const reviewedExceptions = validateExceptionList(
+      approval.reviewedLicenseExceptions,
+      "reviewed dependency license exceptions",
     );
-    if (requiredLicenseExceptions.some((id) => !reviewedExceptions.has(id))) {
+    if (!matchesRequiredExceptions(reviewedExceptions)) {
       throw new Error(
-        "every reviewer must approve all required dependency license exceptions",
+        "every reviewer must approve exactly the required dependency license exceptions",
       );
     }
   }
   if (reviewerIds.size < 2)
     throw new Error("release approvals must use independent reviewers");
+}
+
+function releaseReviewStatus(isPreflight, releaseApprovals) {
+  if (isPreflight) return "pending";
+  return releaseApprovals.reviewGateDisposition === "owner-waived"
+    ? "owner-waived"
+    : "verified";
 }
 
 async function requireReleaseApprovals(head) {
@@ -223,7 +298,7 @@ async function requireReleaseApprovals(head) {
   // Package-specific exceptions are checked later against the dependency
   // inventory generated from the fresh frozen installation. This avoids
   // requiring approval for optional packages that are not in the release.
-  validateReleaseApprovals(approvals, head, []);
+  validateReleaseApprovals(approvals, head, null);
   return approvals;
 }
 
@@ -437,7 +512,7 @@ async function main() {
       distribution: EXPECTED_DISTRIBUTION,
       head,
       license: EXPECTED_LICENSE,
-      reviewStatus: isPreflight ? "pending" : "verified",
+      reviewStatus: releaseReviewStatus(isPreflight, releaseApprovals),
       requiredLicenseExceptions,
       sourceArchiveSha256: sha256(archiveBuffer),
       licenseInventorySha256: sha256(inventory),
@@ -491,6 +566,7 @@ export const releaseVerifierInternalsForTest = Object.freeze({
   auditModeForArguments,
   isExecutedAsMain,
   minimalChildEnvironment,
+  releaseReviewStatus,
   requireIntentionalAudit,
   requiredLicenseExceptionsFromInventory,
 });

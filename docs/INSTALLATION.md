@@ -2,7 +2,7 @@
 
 ReplicantOS is free, MIT-licensed, and entirely self-hosted. One installation runs one workspace on infrastructure controlled by its operator. `replicantos.com` is only the project’s static marketing, documentation, and installation site; it does not host ReplicantOS accounts, data, or agent runs.
 
-> **Pre-release status:** this source-build path is implemented for review, but it is not a supported tagged release until the public release gate closes. Do not expose a pre-release installation to untrusted networks.
+> **Supported release:** `v0.1.0` is the first supported source tag. ReplicantOS remains self-hosted infrastructure: keep the application on loopback unless a same-host TLS reverse proxy and one exact HTTPS origin are configured, and do not expose an installation to untrusted networks without an operator-reviewed perimeter.
 
 ## Requirements
 
@@ -16,10 +16,10 @@ Ubuntu is the primary production target. macOS is supported for development. Doc
 
 ## Build once, start explicitly
 
-The public repository destination is fixed. Before the release gate closes it may be unavailable or contain only pre-release source.
+Install the supported `v0.1.0` tag rather than an unpinned development branch:
 
 ```sh
-git clone https://github.com/replicantos/replicantos.git
+git clone --branch v0.1.0 --depth 1 https://github.com/replicantos/replicantos.git
 cd replicantos
 corepack enable
 pnpm install --frozen-lockfile
@@ -93,7 +93,7 @@ pnpm start
 
 ## Updating a source build
 
-Do not update a running installation in place. Stop the service, take an offline backup of the complete data directory, update the source to a reviewed tag, and repeat the frozen install, build, and doctor steps before starting again:
+Do not update a running installation in place. Stop the service, take an offline backup of the complete data directory, update the source to a supported tag, and repeat the frozen install, build, and doctor steps before starting again:
 
 ```sh
 pnpm install --frozen-lockfile
@@ -102,4 +102,4 @@ pnpm run doctor
 pnpm start
 ```
 
-Until the first supported tag and migration compatibility policy are published, treat every pre-release update as potentially incompatible and test restoration on a separate host-owned copy.
+`v0.1.0` is the first supported tag. Compatibility across later releases is not yet promised: read each release's notes and test both the update and restoration on a separate host-owned copy before changing a running installation.
