@@ -45,7 +45,7 @@ test("the landing page states the complete public capability story", () => {
 
 test("public copy matches the released v0.1.0 surface", () => {
   const publicCopy = `${html}\n${docsHtml}`;
-  assert.match(html, /PUBLIC V0\.1\.0 RELEASE/u);
+  assert.match(html, /V0\.1\.0 · MIT · SELF-HOSTED/u);
   assert.match(html, /SYNTHETIC RUN DETAIL/u);
   assert.match(html, />\s*runs · ALLOWLIST · LIMIT 50/u);
   assert.match(html, /on-demand provider\s+diagnostics/iu);
@@ -65,6 +65,27 @@ test("public copy matches the released v0.1.0 surface", () => {
   assert.doesNotMatch(
     publicCopy,
     /approval[^.]*cancellation[^.]*still (?:being )?(?:completed|completing)/iu,
+  );
+});
+
+test("the landing page ships the promoted synthetic product screenshots", async () => {
+  for (const fileName of [
+    "01-chat-continuity.png",
+    "02-four-harnesses.png",
+    "03-run-control.png",
+    "04-scheduled-work.png",
+    "08-safe-files.png",
+  ]) {
+    assert.match(html, new RegExp(`/assets/screenshots/${fileName}`, "u"));
+    const screenshot = await readFile(
+      path.join(repositoryRoot, "launch", "screenshots", fileName),
+    );
+    assert.equal(screenshot.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+  }
+
+  assert.match(
+    html,
+    />\s*REPLICANT<span class="brand-os">OS<\/span><\/span\s*>/u,
   );
 });
 

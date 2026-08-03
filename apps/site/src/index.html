@@ -57,26 +57,15 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="page-grid" aria-hidden="true"></div>
 
-    <div class="system-line" role="status" aria-label="Product status">
-      <span>SELF-HOSTED CONTROL PLANE</span>
-      <span aria-hidden="true">/</span>
-      <span>NO TELEMETRY BY DEFAULT</span>
-      <span aria-hidden="true">/</span>
-      <span>PUBLIC V0.1.0 RELEASE</span>
-    </div>
-
     <header class="site-header">
       <a class="brand" href="#top" aria-label="ReplicantOS home">
-        <img
-          src="/assets/wordmark.svg"
-          width="330"
-          height="64"
-          alt="ReplicantOS"
-        />
+        <span class="brand-wordmark" aria-hidden="true"
+          >REPLICANT<span class="brand-os">OS</span></span
+        >
       </a>
 
       <nav class="desktop-navigation" aria-label="Primary navigation">
-        <a href="#system">System</a>
+        <a href="#screens">Product</a>
         <a href="#harnesses">Harnesses</a>
         <a href="#security">Security</a>
         <a href="#install">Install</a>
@@ -93,7 +82,7 @@
           <span></span><span></span>
         </summary>
         <nav aria-label="Mobile navigation">
-          <a href="#system">System</a>
+          <a href="#screens">Product</a>
           <a href="#harnesses">Harnesses</a>
           <a href="#security">Security</a>
           <a href="#install">Install</a>
@@ -106,50 +95,97 @@
     <main id="main-content">
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="eyebrow-index">R/OS 001</span>
-            Persistent agent infrastructure
-          </p>
+          <p class="release-pill">V0.1.0 · MIT · SELF-HOSTED</p>
           <h1 id="hero-title">
             <span>Your AI agents.</span>
             <span class="muted-line">One operating system.</span>
           </h1>
-          <div class="hero-intro">
-            <p>
-              ReplicantOS gives your agents a durable place to work—across
-              conversations, schedules, documents, tools, and teams. On your
-              machine. Under your rules.
-            </p>
-            <div class="hero-actions" aria-label="Get started">
-              <a class="button button-primary" href="{{GITHUB_URL}}">
-                <span>Explore on GitHub</span>
-                <span class="button-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="button button-secondary" href="{{DOCS_URL}}">
-                <span>Read the docs</span>
-                <span class="button-arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
+          <p class="hero-lede">
+            A self-hosted workspace for persistent agents, people, schedules,
+            tasks, files, documents, and durable runs.
+          </p>
+          <div class="hero-actions" aria-label="Get started">
+            <a class="button button-primary" href="{{GITHUB_URL}}">
+              <span>Explore on GitHub</span>
+              <span class="button-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-secondary" href="{{DOCS_URL}}">
+              <span>Read the docs</span>
+              <span class="button-arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
 
-        <div class="system-facts" aria-label="System facts">
-          <div>
-            <strong>01</strong>
-            <span>workspace<br />per install</span>
+        <section
+          class="screenshot-showcase"
+          id="screens"
+          aria-labelledby="screens-title"
+        >
+          <div class="showcase-heading">
+            <p>THE PRODUCT</p>
+            <h2 id="screens-title">One workspace. Every agent surface.</h2>
+            <span>SYNTHETIC DEMO DATA · NO LIVE WORKSPACE CONTENT</span>
           </div>
-          <div>
-            <strong>04</strong>
-            <span>adapter<br />contracts</span>
+          <figure class="showcase-primary">
+            <img
+              src="/assets/screenshots/01-chat-continuity.png"
+              width="1600"
+              height="900"
+              alt="Synthetic ReplicantOS channel with persisted Replicant replies and a workspace roster."
+              decoding="async"
+              fetchpriority="high"
+            />
+            <figcaption>Channels and durable agent continuity</figcaption>
+          </figure>
+          <div class="showcase-grid">
+            <figure>
+              <img
+                src="/assets/screenshots/02-four-harnesses.png"
+                width="1600"
+                height="900"
+                alt="Synthetic Harness settings with Codex, Claude Agent SDK, OpenCode, and Grok Build."
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Four harness adapters</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/screenshots/03-run-control.png"
+                width="1600"
+                height="900"
+                alt="Synthetic Runs view with history, durable output, events, usage, and an approval."
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Inspectable run control</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/screenshots/04-scheduled-work.png"
+                width="1600"
+                height="900"
+                alt="Synthetic schedule list with assigned Replicants, timing, and Run Now controls."
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Scheduled work</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/screenshots/08-safe-files.png"
+                width="1600"
+                height="900"
+                alt="Synthetic safe-root file browser and UTF-8 source editor."
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Safe files and documents</figcaption>
+            </figure>
           </div>
-          <div>
-            <strong>00</strong>
-            <span>telemetry<br />by default</span>
-          </div>
-          <p>LOCAL PROCESS / LOCAL FILES / EXPLICIT ACCESS</p>
-        </div>
+        </section>
 
-        <figure class="control-plane" aria-labelledby="preview-caption">
+        <figure class="control-plane" aria-labelledby="preview-caption" hidden>
           <figcaption id="preview-caption">
             <span>CONTROL PLANE / SYNTHETIC FEATURE ILLUSTRATION</span>
             <span>NOT LIVE WORKSPACE DATA</span>
@@ -994,12 +1030,9 @@ pnpm start</code></pre>
 
     <footer class="site-footer">
       <a class="footer-brand" href="#top" aria-label="Back to top">
-        <img
-          src="/assets/wordmark.svg"
-          width="330"
-          height="64"
-          alt="ReplicantOS"
-        />
+        <span class="brand-wordmark" aria-hidden="true"
+          >REPLICANT<span class="brand-os">OS</span></span
+        >
       </a>
       <p>A SELF-HOSTED CONTROL PLANE FOR PERSISTENT AI AGENTS.</p>
       <nav aria-label="Footer navigation">

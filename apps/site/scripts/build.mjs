@@ -11,6 +11,7 @@ const siteRoot = path.resolve(
 const repositoryRoot = path.resolve(siteRoot, "../..");
 const sourceDirectory = path.join(siteRoot, "src");
 const outputDirectory = path.join(siteRoot, "dist");
+const screenshotDirectory = path.join(repositoryRoot, "launch", "screenshots");
 const tokenSource = path.join(
   repositoryRoot,
   "packages",
@@ -36,6 +37,13 @@ for (const [label, value] of Object.entries(siteConfig)) {
 await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
 await cp(sourceDirectory, outputDirectory, { recursive: true });
+await cp(
+  screenshotDirectory,
+  path.join(outputDirectory, "assets", "screenshots"),
+  {
+    recursive: true,
+  },
+);
 await cp(tokenSource, path.join(outputDirectory, "styles", "tokens.css"));
 
 for (const fileName of ["index.html", "404.html", "docs/index.html"]) {
