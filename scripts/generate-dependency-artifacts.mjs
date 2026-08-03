@@ -27,8 +27,9 @@ function commandJson(command, args) {
     stdio: ["ignore", "pipe", "pipe"],
   });
   if (result.status !== 0) {
+    const diagnostic = summarizeCommandFailure(result.stderr || result.stdout);
     throw new Error(
-      `${command} ${args.join(" ")} failed without producing release evidence`,
+      `${command} ${args.join(" ")} failed without producing release evidence: ${diagnostic}`,
     );
   }
   try {
@@ -36,6 +37,24 @@ function commandJson(command, args) {
   } catch {
     throw new Error(`${command} ${args.join(" ")} returned invalid JSON`);
   }
+}
+
+function summarizeCommandFailure(stderr) {
+  const normalized = String(stderr ?? "")
+    .replace(/\u001B\[[0-?]*[ -/]*[@-~]/gu, "")
+    .replace(/\r\n?/gu, "\n")
+    .replace(
+      /\/(?:Users|home)\/[^/\s"'()]+(?:\/[^\s"'()]*)?/gu,
+      "<redacted-path>",
+    )
+    .replace(
+      /[A-Z]:\\Users\\[^\\\s"'()]+(?:\\[^\s"'()]*)?/giu,
+      "<redacted-path>",
+    )
+    .replace(/\s+/gu, " ")
+    .trim();
+  if (normalized.length === 0) return "no diagnostic output";
+  return normalized.slice(0, 1_000);
 }
 
 function sha256(value) {
@@ -410,7 +429,16 @@ async function main() {
     "Infinity",
     "--json",
   ]);
-  const rawLicenses = commandJson("pnpm", ["licenses", "list", "--json"]);
+  // pnpm's optional-dependency scanner can require store entries for packages
+  // that were intentionally pruned on the current platform. Scan the portable
+  // dependency set here; every omitted optional node must match an exact
+  // declaration in the reviewed policy below or artifact generation fails.
+  const rawLicenses = commandJson("pnpm", [
+    "licenses",
+    "list",
+    "--json",
+    "--no-optional",
+  ]);
   const artifacts = createArtifacts({
     listing,
     lockfile,
@@ -430,7 +458,7 @@ async function main() {
     writeAtomic(join(outputDirectory, "sbom.cdx.json"), sbom),
   ]);
   console.log(
-    `Generated deterministic license inventory and CycloneDX SBOM for ${artifacts.inventory.packages.length} installed package versions.`,
+    `Generated deterministic license inventory and CycloneDX SBOM for ${artifacts.inventory.packages.length} lockfile-reachable package versions.`,
   );
 }
 
@@ -461,4 +489,5 @@ export const dependencyArtifactInternalsForTest = Object.freeze({
   isExecutedAsMain,
   matchLicensePolicy,
   purl,
+  summarizeCommandFailure,
 });

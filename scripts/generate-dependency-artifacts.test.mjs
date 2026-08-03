@@ -13,8 +13,12 @@ const script = fileURLToPath(
 const policyPath = fileURLToPath(
   new URL("../privacy/license-policy.json", import.meta.url),
 );
-const { assertNoAbsolutePaths, collectLicenses, matchLicensePolicy } =
-  dependencyArtifactInternalsForTest;
+const {
+  assertNoAbsolutePaths,
+  collectLicenses,
+  matchLicensePolicy,
+  summarizeCommandFailure,
+} = dependencyArtifactInternalsForTest;
 
 test("license policy fail-closes unknown declarations and pins reviewed exceptions", async () => {
   const policy = JSON.parse(await readFile(policyPath, "utf8"));
@@ -121,4 +125,17 @@ test("absolute-path guard reports the problem without echoing the path", () => {
     () => assertNoAbsolutePaths(privatePath),
     /absolute user-home path/u,
   );
+});
+
+test("command diagnostics are bounded and redact runner paths", () => {
+  const privatePath = ["", "home", "runner", "pnpm-store", "index.json"].join(
+    "/",
+  );
+  const diagnostic = summarizeCommandFailure(
+    `\u001B[31mERR_PNPM_TEST\u001B[0m package index missing (at ${privatePath}) ${"x".repeat(2_000)}`,
+  );
+  assert.match(diagnostic, /ERR_PNPM_TEST/u);
+  assert.match(diagnostic, /<redacted-path>/u);
+  assert.equal(diagnostic.includes(privatePath), false);
+  assert.equal(diagnostic.length, 1_000);
 });

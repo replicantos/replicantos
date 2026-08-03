@@ -23,9 +23,39 @@
     },
     {
       "packagePattern": "^@napi-rs/wasm-runtime$",
-      "versions": ["0.2.12"],
+      "versions": ["0.2.12", "1.2.2"],
       "declaredLicense": "MIT",
       "sourcePackage": "@napi-rs/wasm-runtime"
+    },
+    {
+      "packagePattern": "^@emnapi/(?:core|runtime)$",
+      "versions": ["2.0.0-alpha.3"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@emnapi/runtime"
+    },
+    {
+      "packagePattern": "^@emnapi/wasi-threads$",
+      "versions": ["2.0.1"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@emnapi/wasi-threads"
+    },
+    {
+      "packagePattern": "^@tybys/wasm-util$",
+      "versions": ["0.10.3"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@tybys/wasm-util"
+    },
+    {
+      "packagePattern": "^fsevents$",
+      "versions": ["2.3.2", "2.3.3"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "fsevents"
+    },
+    {
+      "packagePattern": "^tslib$",
+      "versions": ["2.8.1"],
+      "declaredLicense": "0BSD",
+      "sourcePackage": "tslib"
     },
     {
       "packagePattern": "^@esbuild/[a-z0-9-]+$",

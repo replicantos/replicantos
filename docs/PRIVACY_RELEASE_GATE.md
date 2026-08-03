@@ -81,6 +81,11 @@ Both omit timestamps, serial numbers, installation paths, package-author fields,
 and other host-specific values. The generator fails when a license is absent or
 outside `privacy/license-policy.json`.
 
+The generator asks pnpm for non-optional license declarations, then requires
+every optional lockfile node to match an exact-version declaration in the
+reviewed policy. This avoids pnpm's platform-specific store scan while still
+failing closed when any optional package or declaration changes.
+
 The optional Claude Agent SDK and its native packages ship proprietary terms
 without an SPDX declaration. The policy maps only version `0.3.220` to
 `LicenseRef-Anthropic-Claude-Agent-SDK-Terms`; upgrades fail closed. It is not
