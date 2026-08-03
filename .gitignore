@@ -1,0 +1,70 @@
+# Dependencies and build output
+node_modules/
+dist/
+.next/
+.astro/
+.turbo/
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# Environment and credentials
+.env
+.env.*
+*.env
+!*.env.example
+credentials/
+credentials.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.cert
+*.crt
+*.jks
+*.keystore
+
+# Runtime state
+/data/
+/runtime/
+/workspaces/
+/uploads/
+/backups/
+/logs/
+/sessions/
+/browser-profiles/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.wal
+*.shm
+*.log
+
+# Harness-local authentication and settings
+**/.codex/auth.json
+**/.claude/settings.local.json
+**/.grok/
+**/.opencode/
+.privacy.local-denylist
+/release/approvals.json
+/release/artifacts/
+
+# Test artifacts
+playwright-report/
+test-results/
+artifacts/
+
+# Generated release archives
+*.bundle
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,35 @@
+{
+  "name": "@replicantos/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/index.ts",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "serve:dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cookie": "11.1.2",
+    "@fastify/cors": "11.3.0",
+    "@fastify/rate-limit": "11.2.0",
+    "@fastify/static": "10.1.2",
+    "@fastify/websocket": "11.3.0",
+    "@node-rs/argon2": "2.0.2",
+    "@replicantos/core": "workspace:*",
+    "@replicantos/db": "workspace:*",
+    "@replicantos/harnesses": "workspace:*",
+    "@replicantos/protocol": "workspace:*",
+    "@replicantos/runtime": "workspace:*",
+    "fastify": "5.11.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.2",
+    "tsx": "4.23.4",
+    "vitest": "4.1.10"
+  }
+}

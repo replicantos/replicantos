@@ -1,0 +1,14 @@
+{
+  "name": "@replicantos/site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static public landing site for ReplicantOS.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "lint": "node --check src/assets/site.js && node --check scripts/build.mjs && node --check scripts/check.mjs && node --check scripts/serve.mjs && node scripts/check.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test tests/site.test.mjs"
+  }
+}

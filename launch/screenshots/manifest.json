@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "policySha256": "4f4c7583c9ad2c014580768b0cd4346385dd60ff15eeaef267cf96cbe73d9430",
+  "files": [
+    {
+      "height": 900,
+      "name": "01-chat-continuity.png",
+      "sha256": "a616a3aac2bdff7b36e08eba3b0c0e229b64723dce63cab18395bff87d011ca4",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "02-four-harnesses.png",
+      "sha256": "4202629f69403c5792a578788ea320b5adc8c3dba0f264b09c805591cc8161de",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "03-run-control.png",
+      "sha256": "97e8ca32e12349b7771e1bbf947c9b6761ecdefd37c1a4761240eb2b1267c55a",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "04-scheduled-work.png",
+      "sha256": "ff3eaf171d55cd09fe70c3be11622d9fcd9d586dabe624f405676fe95ae221cc",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "05-users-access.png",
+      "sha256": "72b044e267f46cdf3a8c30dc1b43febf885fe348eca3ddef440e804bd2ffc5cd",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "06-shared-tasks.png",
+      "sha256": "9aecf7706be5af53311825e8e14c4f88a12eac03e94214f21bc640e07f545521",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "07-document-library.png",
+      "sha256": "679206b931b4394876a7909185b95bc1e522554639a250ffe44b98108313b513",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "08-safe-files.png",
+      "sha256": "da63fb7248acc1623f1de084acb126c416af0f94f5d074929993483ace4a222e",
+      "width": 1600
+    },
+    {
+      "height": 900,
+      "name": "09-inspectable-database.png",
+      "sha256": "4db53337bf96328336fbb4e7731560bfbe318dc69276c005a744b910ba5df127",
+      "width": 1600
+    },
+    {
+      "height": 844,
+      "name": "10-mobile-pwa.png",
+      "sha256": "c108590457ce4cb736c6ea72da9fed4b0f451ec58eced21753a5211cd75af9fe",
+      "width": 390
+    }
+  ]
+}

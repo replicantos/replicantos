@@ -1,0 +1,77 @@
+:root {
+  color-scheme: dark;
+
+  /* Neutral palette: product state is conveyed by words and shapes, not hue alone. */
+  --r-color-canvas: #070808;
+  --r-color-surface: #0c0e0e;
+  --r-color-surface-raised: #121414;
+  --r-color-surface-soft: #181a1a;
+  --r-color-line: #292c2b;
+  --r-color-line-strong: #444846;
+  --r-color-ink: #f3f4ef;
+  --r-color-ink-muted: #a6aaa5;
+  --r-color-ink-faint: #6f7470;
+  --r-color-signal: #e5e8df;
+  --r-color-positive: #bdc9bf;
+  --r-color-warning: #c9c3b7;
+  --r-color-shadow: rgb(0 0 0 / 48%);
+
+  --r-font-display:
+    "Arial Narrow", "Helvetica Neue", "Inter Tight", system-ui, sans-serif;
+  --r-font-body:
+    Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-font-mono:
+    "SFMono-Regular", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+
+  --r-text-2xs: 0.6875rem;
+  --r-text-xs: 0.75rem;
+  --r-text-sm: 0.875rem;
+  --r-text-md: 1rem;
+  --r-text-lg: 1.125rem;
+  --r-text-xl: 1.375rem;
+  --r-text-2xl: clamp(2rem, 5vw, 4.75rem);
+  --r-text-display: clamp(3.5rem, 11vw, 9.75rem);
+
+  --r-leading-tight: 0.88;
+  --r-leading-heading: 1.02;
+  --r-leading-body: 1.65;
+  --r-tracking-tight: -0.055em;
+  --r-tracking-label: 0.14em;
+
+  --r-space-1: 0.25rem;
+  --r-space-2: 0.5rem;
+  --r-space-3: 0.75rem;
+  --r-space-4: 1rem;
+  --r-space-5: 1.25rem;
+  --r-space-6: 1.5rem;
+  --r-space-8: 2rem;
+  --r-space-10: 2.5rem;
+  --r-space-12: 3rem;
+  --r-space-16: 4rem;
+  --r-space-20: 5rem;
+  --r-space-24: 6rem;
+  --r-space-32: 8rem;
+
+  --r-radius-xs: 0.25rem;
+  --r-radius-sm: 0.5rem;
+  --r-radius-md: 0.875rem;
+  --r-radius-lg: 1.25rem;
+  --r-radius-pill: 999px;
+
+  --r-shadow-low: 0 1rem 3rem var(--r-color-shadow);
+  --r-shadow-high: 0 2rem 7rem rgb(0 0 0 / 62%);
+  --r-duration-fast: 140ms;
+  --r-duration-base: 240ms;
+  --r-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --r-page-gutter: clamp(1rem, 4vw, 4.5rem);
+  --r-page-max: 92rem;
+  --r-header-height: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --r-duration-fast: 0ms;
+    --r-duration-base: 0ms;
+  }
+}

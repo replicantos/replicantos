@@ -1,0 +1,17 @@
+{
+  "name": "ReplicantOS",
+  "short_name": "ReplicantOS",
+  "description": "A self-hosted control plane for persistent AI agents.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070808",
+  "theme_color": "#070808",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

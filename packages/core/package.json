@@ -1,0 +1,25 @@
+{
+  "name": "@replicantos/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-free ReplicantOS domain types and authorization policy.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm build && node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@replicantos/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "predev": "pnpm --filter @replicantos/ui build",
+    "dev": "vite --host 127.0.0.1 --port 4310 --strictPort",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@replicantos/protocol": "workspace:*",
+    "@replicantos/ui": "workspace:*",
+    "lucide-react": "0.460.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "26.1.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.0.5",
+    "jsdom": "29.0.0",
+    "typescript": "7.0.2",
+    "vite": "8.2.0",
+    "vitest": "4.1.10"
+  }
+}

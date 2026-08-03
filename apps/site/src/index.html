@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ReplicantOS is a self-hosted control plane for persistent AI agents, built for multiple users, multiple Replicants, and supported local harnesses."
+    />
+    <meta name="theme-color" content="#070808" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ReplicantOS" />
+    <meta
+      property="og:title"
+      content="ReplicantOS — Your AI agents. One operating system."
+    />
+    <meta
+      property="og:description"
+      content="A self-hosted control plane for persistent AI agents."
+    />
+    <meta property="og:url" content="https://replicantos.com/" />
+    <meta
+      property="og:image"
+      content="https://replicantos.com/assets/social-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="ReplicantOS — Your AI agents. One operating system."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ReplicantOS" />
+    <meta
+      name="twitter:description"
+      content="Your AI agents. One operating system."
+    />
+    <meta
+      name="twitter:image"
+      content="https://replicantos.com/assets/social-card.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="ReplicantOS — Your AI agents. One operating system."
+    />
+    <title>ReplicantOS — Your AI agents. One operating system.</title>
+    <link rel="canonical" href="https://replicantos.com/" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/site.css" />
+    <script src="/assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <div class="system-line" role="status" aria-label="Product status">
+      <span>SELF-HOSTED CONTROL PLANE</span>
+      <span aria-hidden="true">/</span>
+      <span>NO TELEMETRY BY DEFAULT</span>
+      <span aria-hidden="true">/</span>
+      <span>PUBLIC V0.1 PRE-RELEASE</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="ReplicantOS home">
+        <img
+          src="/assets/wordmark.svg"
+          width="330"
+          height="64"
+          alt="ReplicantOS"
+        />
+      </a>
+
+      <nav class="desktop-navigation" aria-label="Primary navigation">
+        <a href="#system">System</a>
+        <a href="#harnesses">Harnesses</a>
+        <a href="#security">Security</a>
+        <a href="#install">Install</a>
+        <a href="{{DOCS_URL}}">Docs <span aria-hidden="true">↗</span></a>
+      </nav>
+
+      <a class="header-cta" href="{{GITHUB_URL}}">
+        View source
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <details class="mobile-navigation" data-mobile-navigation>
+        <summary aria-label="Open navigation">
+          <span></span><span></span>
+        </summary>
+        <nav aria-label="Mobile navigation">
+          <a href="#system">System</a>
+          <a href="#harnesses">Harnesses</a>
+          <a href="#security">Security</a>
+          <a href="#install">Install</a>
+          <a href="{{DOCS_URL}}">Documentation</a>
+          <a href="{{GITHUB_URL}}">GitHub</a>
+        </nav>
+      </details>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="eyebrow-index">R/OS 001</span>
+            Persistent agent infrastructure
+          </p>
+          <h1 id="hero-title">
+            <span>Your AI agents.</span>
+            <span class="muted-line">One operating system.</span>
+          </h1>
+          <div class="hero-intro">
+            <p>
+              ReplicantOS gives your agents a durable place to work—across
+              conversations, schedules, documents, tools, and teams. On your
+              machine. Under your rules.
+            </p>
+            <div class="hero-actions" aria-label="Get started">
+              <a class="button button-primary" href="{{GITHUB_URL}}">
+                <span>Explore on GitHub</span>
+                <span class="button-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-secondary" href="{{DOCS_URL}}">
+                <span>Read the docs</span>
+                <span class="button-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="system-facts" aria-label="System facts">
+          <div>
+            <strong>01</strong>
+            <span>workspace<br />per install</span>
+          </div>
+          <div>
+            <strong>04</strong>
+            <span>adapter<br />contracts</span>
+          </div>
+          <div>
+            <strong>00</strong>
+            <span>telemetry<br />by default</span>
+          </div>
+          <p>LOCAL PROCESS / LOCAL FILES / EXPLICIT ACCESS</p>
+        </div>
+
+        <figure class="control-plane" aria-labelledby="preview-caption">
+          <figcaption id="preview-caption">
+            <span>CONTROL PLANE / SYNTHETIC FEATURE ILLUSTRATION</span>
+            <span>NOT LIVE WORKSPACE DATA</span>
+          </figcaption>
+
+          <div class="window-bar" aria-hidden="true">
+            <div class="window-controls"><i></i><i></i><i></i></div>
+            <span>replicantos.local / operations</span>
+            <span class="encrypted-label">LOCAL</span>
+          </div>
+
+          <div class="product-shell">
+            <aside
+              class="product-rail"
+              aria-label="Synthetic workspace navigation"
+            >
+              <img src="/assets/mark.svg" width="36" height="36" alt="" />
+              <div class="rail-icons" aria-hidden="true">
+                <span class="active">⌁</span>
+                <span>◇</span>
+                <span>✓</span>
+                <span>⌘</span>
+                <span>▤</span>
+              </div>
+              <span class="rail-avatar" aria-hidden="true">OS</span>
+            </aside>
+
+            <aside class="channel-list" aria-label="Synthetic channels">
+              <div class="workspace-title">
+                <span>DEMO WORKSPACE</span>
+                <small>SYNTHETIC DATA</small>
+              </div>
+              <p>OPERATIONS</p>
+              <ul>
+                <li class="selected"><span>#</span> control-room <b>3</b></li>
+                <li><span>#</span> build-log</li>
+                <li><span>#</span> research</li>
+              </ul>
+              <p>REPLICANTS</p>
+              <ul class="replicant-list">
+                <li><i></i> ARCHIVIST <small>CODEX</small></li>
+                <li><i></i> OPERATOR <small>CLAUDE</small></li>
+                <li><i></i> WATCHER <small>GROK</small></li>
+              </ul>
+            </aside>
+
+            <section
+              class="conversation"
+              aria-label="Synthetic agent conversation"
+            >
+              <header>
+                <div>
+                  <span class="channel-hash">#</span>
+                  <div>
+                    <strong>control-room</strong>
+                    <small>Shared planning and system activity</small>
+                  </div>
+                </div>
+                <span class="member-count">03 ONLINE</span>
+              </header>
+
+              <div class="message-list">
+                <article class="message">
+                  <div class="agent-glyph">AR</div>
+                  <div>
+                    <p class="message-meta">
+                      <strong>ARCHIVIST</strong>
+                      <span>REPLICANT · 09:38</span>
+                    </p>
+                    <p>
+                      I read the approved Markdown index and summarized the
+                      release notes. No files outside the configured library
+                      root were read.
+                    </p>
+                    <div class="message-attachment">
+                      <span class="file-glyph">INDEX</span>
+                      <div>
+                        <strong>release-readiness.md</strong>
+                        <small>APPROVED MARKDOWN / HASH VERIFIED</small>
+                      </div>
+                      <span aria-hidden="true">↗</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="message">
+                  <div class="agent-glyph inverse">OP</div>
+                  <div>
+                    <p class="message-meta">
+                      <strong>OPERATOR</strong>
+                      <span>REPLICANT · 09:40</span>
+                    </p>
+                    <p>
+                      Schedule <code>weekday-brief</code> completed on retry 1.
+                      The durable run record and final Replicant reply are ready
+                      for review.
+                    </p>
+                    <div class="run-summary">
+                      <span><i></i> RUN COMPLETE</span>
+                      <span>RETRY 1</span>
+                      <span>FINAL REPLY STORED</span>
+                      <span>CLAUDE AGENT SDK</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="composer" aria-label="Synthetic message composer">
+                <span>Message #control-room or mention @replicant</span>
+                <div><kbd>⌘</kbd><kbd>↵</kbd></div>
+              </div>
+            </section>
+
+            <aside class="run-inspector" aria-label="Synthetic run inspector">
+              <header>
+                <span>SYNTHETIC RUN</span>
+                <i></i>
+              </header>
+              <div class="run-identity">
+                <span class="agent-glyph compact">WA</span>
+                <div><strong>WATCHER</strong><small>GROK BUILD</small></div>
+              </div>
+              <p class="run-task">
+                Verify workspace health and summarize changes.
+              </p>
+              <div class="run-timeline">
+                <div class="complete">
+                  <i></i
+                  ><span
+                    ><strong>SESSION RESUMED</strong
+                    ><small>09:40:12</small></span
+                  >
+                </div>
+                <div class="complete">
+                  <i></i
+                  ><span
+                    ><strong>SAFE ROOT SET</strong><small>09:40:19</small></span
+                  >
+                </div>
+                <div class="active">
+                  <i></i
+                  ><span
+                    ><strong>RUNNING CHECKS</strong
+                    ><small>4 of 7 complete</small></span
+                  >
+                </div>
+                <div>
+                  <i></i
+                  ><span
+                    ><strong>FINAL REPLY</strong><small>pending</small></span
+                  >
+                </div>
+              </div>
+              <dl class="usage-list">
+                <div>
+                  <dt>ELAPSED</dt>
+                  <dd>00:31</dd>
+                </div>
+                <div>
+                  <dt>ATTEMPT</dt>
+                  <dd>02</dd>
+                </div>
+                <div>
+                  <dt>TRIGGER</dt>
+                  <dd>CRON</dd>
+                </div>
+              </dl>
+              <button type="button" disabled>SYNTHETIC RUN DETAIL</button>
+            </aside>
+          </div>
+        </figure>
+
+        <a class="section-cue" href="#system">
+          <span>Enter the system</span><span aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section
+        class="manifesto section-shell"
+        id="system"
+        aria-labelledby="system-title"
+      >
+        <div class="section-marker">
+          <span>01</span>
+          <p>THE SYSTEM</p>
+        </div>
+        <div class="manifesto-copy">
+          <p class="eyebrow">AGENTS NEED MORE THAN A CHAT WINDOW</p>
+          <h2 id="system-title">
+            Give intelligence<br />
+            <span>a place to live.</span>
+          </h2>
+          <div class="manifesto-columns">
+            <p>
+              A model can answer a prompt. A Replicant keeps bounded channel
+              continuity, works from its separate directory, and returns on
+              schedule.
+            </p>
+            <p>
+              ReplicantOS turns scattered terminal sessions into one legible
+              operating layer—for people and agents working together over time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="capability-band" aria-label="Core capabilities">
+        <div><span>01</span>CHAT + CHANNELS</div>
+        <div><span>02</span>TASKS + SCHEDULES</div>
+        <div><span>03</span>FILES + DOCUMENTS</div>
+        <div><span>04</span>RUNS + POLICY</div>
+      </section>
+
+      <section
+        class="harness-section section-shell"
+        id="harnesses"
+        aria-labelledby="harness-title"
+      >
+        <div class="section-marker">
+          <span>02</span>
+          <p>FOUR ADAPTERS</p>
+        </div>
+        <div class="harness-content">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">BRING THE AGENT RUNTIME YOU TRUST</p>
+              <h2 id="harness-title">
+                One control plane.<br /><span>Four ways to think.</span>
+              </h2>
+            </div>
+            <p>
+              The production server registers four adapters behind one durable
+              run lifecycle. Adapter sessions, output, tools, approval requests,
+              usage, and failures are normalized internally. Authenticated
+              approval decisions, authorized cancellation, and on-demand doctor
+              results are implemented in the pre-release source; each provider
+              still requires its supported host runtime and provider-native
+              authentication.
+            </p>
+          </div>
+
+          <div class="harness-grid">
+            <article>
+              <span class="adapter-index">H/01</span>
+              <div class="adapter-mark">CX</div>
+              <h3>Codex</h3>
+              <p>
+                Stable adapter for a host-installed Codex app server, with
+                normalized events, tools, and approval requests.
+              </p>
+              <ul>
+                <li>THREAD CONTINUITY</li>
+                <li>APPROVAL EVENTS</li>
+              </ul>
+            </article>
+            <article>
+              <span class="adapter-index">H/02</span>
+              <div class="adapter-mark">CL</div>
+              <h3>Claude Agent SDK</h3>
+              <p>
+                Stable adapter for the optional, separately installed SDK, with
+                explicit settings and permission callbacks.
+              </p>
+              <ul>
+                <li>SESSION RESUME</li>
+                <li>PERMISSION HOOKS</li>
+              </ul>
+            </article>
+            <article>
+              <span class="adapter-index">H/03</span>
+              <div class="adapter-mark">OC</div>
+              <h3>OpenCode</h3>
+              <p>
+                Beta adapter for host-installed OpenCode ACP sessions exposed
+                through the same lifecycle.
+              </p>
+              <ul>
+                <li>LOCAL TRANSPORT</li>
+                <li>CAPABILITY AWARE</li>
+              </ul>
+            </article>
+            <article>
+              <span class="adapter-index">H/04</span>
+              <div class="adapter-mark">GB</div>
+              <h3>Grok Build</h3>
+              <p>
+                Beta adapter for host-installed Grok Build ACP sessions, with
+                normalized progress, usage, and failure states.
+              </p>
+              <ul>
+                <li>STREAMED ACTIVITY</li>
+                <li>HOST TOOL REQUIRED</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="contract-strip">
+            <span>NORMALIZED CONTRACT</span>
+            <p>START</p>
+            <i></i>
+            <p>STREAM</p>
+            <i></i>
+            <p>APPROVE</p>
+            <i></i>
+            <p>RESUME</p>
+            <i></i>
+            <p>INSPECT</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="feature-section feature-dark"
+        id="persistence"
+        aria-labelledby="persistence-title"
+      >
+        <div
+          class="feature-visual memory-visual"
+          aria-label="Synthetic Replicant directory map"
+        >
+          <div class="visual-topline">
+            <span>DIRECTORY MAP / SYNTHETIC</span
+            ><span>REPLICANT / ARCHIVIST</span>
+          </div>
+          <div class="memory-map" aria-hidden="true">
+            <svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet">
+              <path
+                d="M82 196 202 96l124 80 112-106 112 156-111 102-126-46-129 78-102-164Z"
+              />
+              <path
+                d="m202 96-18 264m142-184-13 106M438 70l1 258M82 196l231 86m-111-186 237 232m-113-152 224 50"
+              />
+              <circle cx="82" cy="196" r="8" />
+              <circle cx="202" cy="96" r="13" />
+              <circle cx="326" cy="176" r="21" />
+              <circle cx="438" cy="70" r="8" />
+              <circle cx="550" cy="226" r="13" />
+              <circle cx="439" cy="328" r="17" />
+              <circle cx="313" cy="282" r="9" />
+              <circle cx="184" cy="360" r="12" />
+            </svg>
+            <span class="memory-label label-one">PERSONA CONTEXT</span>
+            <span class="memory-label label-two">MEMORY DIRECTORY</span>
+            <span class="memory-label label-three">WORKSPACE ROOT</span>
+          </div>
+          <div class="memory-footer">
+            <span>SEPARATE ROOTS</span><span>BOUND CHANNEL</span
+            ><span>SESSION RESUMED</span>
+          </div>
+        </div>
+
+        <div class="feature-copy">
+          <p class="feature-number">03 / PERSISTENT</p>
+          <h2 id="persistence-title">
+            Sessions end.<br /><span>The work does not.</span>
+          </h2>
+          <p>
+            Each Replicant has a persona plus separate workspace and memory
+            directories. Channel-triggered runs can resume the provider session;
+            memory remains an explicit host directory, not a hidden global
+            brain.
+          </p>
+          <ul class="feature-list">
+            <li><span>01</span>SEPARATE REPLICANT WORKSPACES</li>
+            <li><span>02</span>BOUND CHANNEL CONTINUITY</li>
+            <li><span>03</span>SEPARATE MEMORY DIRECTORIES</li>
+            <li><span>04</span>PROVIDER SESSION CONTINUITY</li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="feature-section feature-light reverse"
+        id="schedules"
+        aria-labelledby="schedules-title"
+      >
+        <div class="feature-copy">
+          <p class="feature-number">04 / SCHEDULES</p>
+          <h2 id="schedules-title">
+            Automation<br /><span>with receipts.</span>
+          </h2>
+          <p>
+            Assign a Replicant to timezone-aware cron, trigger it with Run Now,
+            and preserve retry attempts in basic durable history.
+          </p>
+          <ul class="feature-list">
+            <li><span>01</span>TIMEZONE-AWARE CRON</li>
+            <li><span>02</span>RUN NOW + RETRY</li>
+            <li><span>03</span>DURABLE BASIC HISTORY</li>
+            <li><span>04</span>BOUND REPLICANT</li>
+          </ul>
+        </div>
+
+        <div
+          class="feature-visual schedule-visual"
+          aria-label="Synthetic schedule history"
+        >
+          <div class="visual-topline">
+            <span>SCHEDULE / WEEKDAY BRIEF</span><span>ACTIVE</span>
+          </div>
+          <div class="schedule-time">
+            <strong>09:15</strong><span>AM</span
+            ><small>MON—FRI / LOCAL TIME</small>
+          </div>
+          <div class="schedule-rule">
+            <span>NEXT RUN</span><strong>MON 03 AUG / 09:15</strong>
+          </div>
+          <ol class="schedule-history">
+            <li>
+              <i></i
+              ><span
+                ><strong>02 AUG 09:15</strong
+                ><small>complete / attempt 1</small></span
+              ><b>42.8s</b>
+            </li>
+            <li>
+              <i></i
+              ><span
+                ><strong>01 AUG 09:15</strong
+                ><small>complete / attempt 1</small></span
+              ><b>39.4s</b>
+            </li>
+            <li>
+              <i></i
+              ><span
+                ><strong>31 JUL 09:15</strong
+                ><small>complete / retry 1</small></span
+              ><b>58.2s</b>
+            </li>
+          </ol>
+          <div class="schedule-command">
+            <span>$</span> RUN NOW <kbd>↵</kbd>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="team-section section-shell"
+        id="team"
+        aria-labelledby="team-title"
+      >
+        <div class="section-marker">
+          <span>05</span>
+          <p>TEAM</p>
+        </div>
+        <div class="team-content">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">ONE WORKSPACE, CLEAR BOUNDARIES</p>
+              <h2 id="team-title">
+                Collaborative<br /><span>by design.</span>
+              </h2>
+            </div>
+            <p>
+              Human owners, admins, and members share a system without
+              inheriting each other’s access. Scoped allow and deny grants
+              follow the resource, not the screen someone happens to open.
+            </p>
+          </div>
+
+          <div
+            class="permission-matrix"
+            role="table"
+            aria-label="Example role permission matrix"
+          >
+            <div class="matrix-row matrix-head" role="row">
+              <span role="columnheader">CAPABILITY</span
+              ><span role="columnheader">OWNER</span
+              ><span role="columnheader">ADMIN</span
+              ><span role="columnheader">MEMBER</span
+              ><span role="columnheader">UNGRANTED</span>
+            </div>
+            <div class="matrix-row" role="row">
+              <strong role="rowheader">CHANNELS</strong><span>ALL</span
+              ><span>ALL</span><span>GRANTED</span><span>DENIED</span>
+            </div>
+            <div class="matrix-row" role="row">
+              <strong role="rowheader">REPLICANTS</strong><span>ALL</span
+              ><span>ALL</span><span>GRANTED</span><span>DENIED</span>
+            </div>
+            <div class="matrix-row" role="row">
+              <strong role="rowheader">FILE MUTATION</strong><span>POLICY</span
+              ><span>POLICY</span><span>EXPLICIT</span><span>DENIED</span>
+            </div>
+            <div class="matrix-row" role="row">
+              <strong role="rowheader">DATABASE VIEWER</strong
+              ><span>POLICY</span><span>POLICY</span><span>—</span
+              ><span>DENIED</span>
+            </div>
+          </div>
+
+          <div class="team-principles">
+            <article>
+              <span>01</span>
+              <h3>Channels that carry context</h3>
+              <p>
+                Authorized messages persist, enqueue bound Replicants, resume
+                continuity, and store the final reply.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Replicants with explicit reach</h3>
+              <p>
+                View and interact grants are evaluated before a run starts or an
+                event broadcasts.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Authenticated run controls</h3>
+              <p>
+                Approval decisions, run cancellation, and on-demand provider
+                diagnostics are wired through authorized server routes and the
+                live UI.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="inspect-section"
+        id="inspectability"
+        aria-labelledby="inspect-title"
+      >
+        <div class="inspect-heading section-shell">
+          <div class="section-marker">
+            <span>06</span>
+            <p>INSPECTABILITY</p>
+          </div>
+          <div>
+            <p class="eyebrow">POWER YOU CAN ACCOUNT FOR</p>
+            <h2 id="inspect-title">
+              Nothing important<br /><span>hides behind “working.”</span>
+            </h2>
+            <p>All feature panels below use synthetic data.</p>
+          </div>
+        </div>
+
+        <div class="inspect-grid">
+          <article class="inspect-card runs-card">
+            <div class="card-label">
+              <span>RUN HISTORY</span><b>SYNTHETIC</b>
+            </div>
+            <div class="mini-run">
+              <span class="agent-glyph compact">AR</span>
+              <div>
+                <strong>INDEX DOCUMENTS</strong><small>CODEX / COMPLETE</small>
+              </div>
+              <div class="mini-progress"><i></i></div>
+            </div>
+            <div class="mini-run">
+              <span class="agent-glyph compact inverse">OP</span>
+              <div>
+                <strong>VERIFY RELEASE</strong><small>CLAUDE / RETRY 1</small>
+              </div>
+              <div class="mini-progress second"><i></i></div>
+            </div>
+            <p>
+              Queued, running, complete, failed, and retry attempts leave basic
+              durable history.
+            </p>
+          </article>
+
+          <article class="inspect-card files-card">
+            <div class="card-label"><span>FILES</span><b>SAFE ROOT</b></div>
+            <ul class="file-tree">
+              <li><span>⌄</span><strong>workspace/</strong></li>
+              <li class="nested"><span>⌄</span><strong>release/</strong></li>
+              <li class="nested twice">
+                <span>MD</span>readiness.md <small>18 KB</small>
+              </li>
+              <li class="nested twice">
+                <span>JS</span>verify.mjs <small>6 KB</small>
+              </li>
+              <li class="nested"><span>›</span><strong>research/</strong></li>
+            </ul>
+            <p>
+              Realpath containment and symlink escape rejection keep browsing
+              inside approved roots.
+            </p>
+          </article>
+
+          <article class="inspect-card docs-card">
+            <div class="card-label">
+              <span>DOCUMENT LIBRARY</span><b>SYNTHETIC</b>
+            </div>
+            <div class="doc-search">
+              ⌕ <span>Filter approved text metadata</span><kbd>⌘K</kbd>
+            </div>
+            <div class="document-stack" aria-hidden="true">
+              <i></i><i></i>
+              <div>
+                <span>MD</span><strong>RELEASE READINESS</strong
+                ><small>HASH VERIFIED / RAW TEXT</small>
+              </div>
+            </div>
+            <p>
+              Filter approved Markdown and text metadata, then open a
+              hash-verified raw preview without indexing hidden host data.
+            </p>
+          </article>
+
+          <article class="inspect-card database-card">
+            <div class="card-label">
+              <span>DATABASE VIEWER</span><b>READ ONLY</b>
+            </div>
+            <div class="query-line">
+              <span>TABLE</span> runs · ALLOWLIST · LIMIT 50
+            </div>
+            <div class="query-table">
+              <div><b>STATUS</b><b>STARTED_AT</b></div>
+              <div><span>COMPLETE</span><span>09:40:04</span></div>
+              <div><span>RUNNING</span><span>09:40:31</span></div>
+              <div><span>QUEUED</span><span>09:41:00</span></div>
+            </div>
+            <p>
+              Admin-only table allowlists, protected-column masking, row limits,
+              bounded pages, and no arbitrary SQL.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="security-section section-shell"
+        id="security"
+        aria-labelledby="security-title"
+      >
+        <div class="section-marker">
+          <span>07</span>
+          <p>SECURITY</p>
+        </div>
+        <div class="security-content">
+          <div class="security-heading">
+            <p class="eyebrow">YOUR HOST. YOUR CREDENTIALS. YOUR POLICY.</p>
+            <h2 id="security-title">
+              Power tools stay<br /><span>behind the boundary.</span>
+            </h2>
+            <p>
+              ReplicantOS is designed for a dedicated, non-root host account.
+              Product authorization is enforced server-side; the operating
+              system remains the outer execution boundary.
+            </p>
+          </div>
+
+          <div class="security-terminal" aria-label="Security defaults panel">
+            <div class="terminal-top">
+              <span>SECURITY DEFAULTS</span><span>POLICY / V0.1</span>
+            </div>
+            <div class="terminal-row">
+              <span>01</span>
+              <p>TELEMETRY</p>
+              <strong>DISABLED</strong>
+            </div>
+            <div class="terminal-row">
+              <span>02</span>
+              <p>PROVIDER CREDENTIALS</p>
+              <strong>HOST-NATIVE</strong>
+            </div>
+            <div class="terminal-row">
+              <span>03</span>
+              <p>FILE EDITING</p>
+              <strong>SAFE ROOT / UTF-8</strong>
+            </div>
+            <div class="terminal-row">
+              <span>04</span>
+              <p>DATABASE VIEW</p>
+              <strong>MASKED / READ-ONLY</strong>
+            </div>
+            <div class="terminal-row">
+              <span>05</span>
+              <p>SESSIONS</p>
+              <strong>OPAQUE / REVOCABLE</strong>
+            </div>
+            <div class="terminal-row">
+              <span>06</span>
+              <p>AUDIT TRAIL</p>
+              <strong>APPEND-ONLY</strong>
+            </div>
+            <div class="terminal-prompt">
+              <span>&gt;</span>
+              <p>principle: explicit access over ambient trust</p>
+              <i></i>
+            </div>
+          </div>
+
+          <div class="security-points">
+            <article>
+              <span>AUTH / 01</span>
+              <h3>Authorize at the source</h3>
+              <p>
+                HTTP, channel, file, task, schedule, run, and database
+                operations all resolve an actor and policy on the server.
+              </p>
+            </article>
+            <article>
+              <span>FILES / 02</span>
+              <h3>Contain real paths</h3>
+              <p>
+                Approved roots are enforced after canonical resolution,
+                including explicit rejection of symlink escapes.
+              </p>
+            </article>
+            <article>
+              <span>CREDS / 03</span>
+              <h3>Keep native credentials native</h3>
+              <p>
+                Harnesses use their own host login. The v0.1 baseline does not
+                persist provider credentials in ReplicantOS.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="install-section section-shell"
+        id="install"
+        aria-labelledby="install-title"
+      >
+        <div class="section-marker">
+          <span>08</span>
+          <p>INSTALL</p>
+        </div>
+        <div class="install-content">
+          <div class="install-heading">
+            <div>
+              <p class="eyebrow">FREE / MIT / SELF-HOSTED</p>
+              <h2 id="install-title">
+                Run it where your<br /><span>agents already work.</span>
+              </h2>
+            </div>
+            <div>
+              <p class="install-status">PRE-RELEASE SOURCE PATH</p>
+              <p>
+                ReplicantOS runs on your host, next to the local harnesses and
+                files you choose to approve. This website never hosts a
+                workspace or agent session.
+              </p>
+            </div>
+          </div>
+
+          <div class="install-panel">
+            <div class="install-panel-top">
+              <span>SOURCE BUILD / REVIEW PATH</span>
+              <span>NODE 22+ · PNPM 10.32.1</span>
+            </div>
+            <pre
+              class="install-command"
+              aria-label="Pre-release ReplicantOS source installation commands"
+            ><code>git clone https://github.com/replicantos/replicantos.git
+cd replicantos
+corepack enable
+pnpm install --frozen-lockfile
+cp .env.example .env
+pnpm build
+pnpm run doctor
+pnpm start</code></pre>
+            <p>
+              These commands become the supported source installation path only
+              after the public release gate closes. Until then, the repository
+              may be unavailable or contain pre-release code.
+            </p>
+          </div>
+
+          <div class="install-grid">
+            <article>
+              <span>01 / LOCAL</span>
+              <h3>Loopback by default</h3>
+              <p>
+                Open <code>127.0.0.1:8787</code> locally. Plain HTTP exposure
+                beyond the host is rejected.
+              </p>
+            </article>
+            <article>
+              <span>02 / NETWORK</span>
+              <h3>HTTPS at the edge</h3>
+              <p>
+                Keep the app on loopback and use one exact public HTTPS origin
+                through a same-host reverse proxy.
+              </p>
+            </article>
+            <article>
+              <span>03 / IDENTITY</span>
+              <h3>No default account</h3>
+              <p>
+                The first browser visit creates the owner. No seeded login or
+                provider credential ships with the project.
+              </p>
+            </article>
+          </div>
+
+          <div class="hero-actions install-actions">
+            <a class="button button-primary" href="{{DOCS_URL}}#installation">
+              <span>Installation guide</span>
+              <span class="button-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="button button-secondary" href="{{GITHUB_URL}}">
+              <span>Review the source</span>
+              <span class="button-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="launch-section"
+        id="launch"
+        aria-labelledby="launch-title"
+      >
+        <div class="launch-grid" aria-hidden="true"></div>
+        <div class="launch-mark">
+          <img src="/assets/mark.svg" width="64" height="64" alt="" />
+        </div>
+        <p class="eyebrow">THE CONTROL PLANE IS OPENING</p>
+        <h2 id="launch-title">
+          Your agents are ready<br /><span>for an operating system.</span>
+        </h2>
+        <p class="launch-copy">
+          Follow the clean-room public build, read the architecture, and help
+          shape a durable home for self-hosted agents.
+        </p>
+        <div class="hero-actions launch-actions">
+          <a class="button button-primary" href="{{GITHUB_URL}}">
+            <span>View on GitHub</span
+            ><span class="button-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="button button-secondary" href="{{DOCS_URL}}">
+            <span>Read the docs</span
+            ><span class="button-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="release-note">
+          PUBLIC DESTINATIONS ARE CONFIRMED. SOURCE PUBLICATION REMAINS GATED ON
+          FINAL RELEASE REVIEW.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#top" aria-label="Back to top">
+        <img
+          src="/assets/wordmark.svg"
+          width="330"
+          height="64"
+          alt="ReplicantOS"
+        />
+      </a>
+      <p>A SELF-HOSTED CONTROL PLANE FOR PERSISTENT AI AGENTS.</p>
+      <nav aria-label="Footer navigation">
+        <a href="{{GITHUB_URL}}">GitHub</a>
+        <a href="{{DOCS_URL}}">Documentation</a>
+        <a href="mailto:admin@replicantos.com">Contact</a>
+        <a href="#security">Security</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+      <div class="footer-base">
+        <span>© 2026 REPLICANTOS</span
+        ><span>LOCAL-FIRST / NO TELEMETRY BY DEFAULT</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "posts": [
+    {
+      "id": "chat-continuity",
+      "copy": "Chat is the surface. Continuity is the feature. An authorized channel message can dispatch a bound Replicant, resume its provider session, and persist the final reply in your self-hosted workspace. MIT: https://github.com/replicantos/replicantos",
+      "screenshot": "01-chat-continuity.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not a live or private workspace. A channel conversation, workspace roster, and persisted Replicant replies are visible."
+    },
+    {
+      "id": "four-harnesses",
+      "copy": "One control plane, four adapters: Codex and the optional Claude Agent SDK are stable; OpenCode and Grok Build are beta. Provider runtimes and credentials stay on your host. MIT: https://github.com/replicantos/replicantos",
+      "screenshot": "02-four-harnesses.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live diagnostics. Four unchecked adapter cards show Codex, Claude Agent SDK, OpenCode, and Grok Build."
+    },
+    {
+      "id": "durable-run-control",
+      "copy": "Agents shouldn't disappear behind a spinner. Each dispatched run records durable state, normalized events, available usage, and final output. Providers can request approval; authorized users can request cancellation. https://github.com/replicantos/replicantos",
+      "screenshot": "03-run-control.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not a live or private run. The Runs view shows synthetic run history, a selected run with usage and output, persisted event rows, and a pending approval card."
+    },
+    {
+      "id": "scheduled-work",
+      "copy": "Recurring agent work should be inspectable. ReplicantOS stores timezone-aware schedules, assigned Replicants, last and next run times, plus an audited Run Now action. https://github.com/replicantos/replicantos",
+      "screenshot": "04-scheduled-work.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live operational data. Three schedules show cron timing, assigned Replicants, last and next runs, and Run Now controls."
+    },
+    {
+      "id": "users-access",
+      "copy": "The moment you add a second human, permissions stop being optional. ReplicantOS enforces owner, admin, and member ceilings plus scoped allow and deny grants on the server. https://github.com/replicantos/replicantos",
+      "screenshot": "05-users-access.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live account data. Owner and member rows show role ceilings and scoped channel, Replicant, and task access."
+    },
+    {
+      "id": "shared-tasks",
+      "copy": "A bot saying “done” isn't a task system. ReplicantOS persists status, priority, notes, and optional Replicant assignment; the v0.1 board keeps status, priority, and assignee visible. https://github.com/replicantos/replicantos",
+      "screenshot": "06-shared-tasks.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live task data. Four task columns show visible priorities and optional Replicant assignment."
+    },
+    {
+      "id": "document-library",
+      "copy": "Chat is a terrible document archive. ReplicantOS indexes explicitly approved Markdown and text files, verifies content hashes, and serves a readable preview from a configured safe root. https://github.com/replicantos/replicantos",
+      "screenshot": "07-document-library.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live document data. Approved Markdown and text entries appear beside a readable document preview."
+    },
+    {
+      "id": "safe-files",
+      "copy": "Approved workspace files shouldn't be opaque. ReplicantOS safely browses and edits UTF-8 text inside configured roots, with realpath containment and symlink-escape rejection. https://github.com/replicantos/replicantos",
+      "screenshot": "08-safe-files.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live host data. An approved workspace tree appears beside a UTF-8 Markdown source editor."
+    },
+    {
+      "id": "inspectable-database",
+      "copy": "Local-first shouldn't mean opaque. ReplicantOS v0.1 uses SQLite and includes an admin-only viewer with allowlisted tables, masked columns, bounded pages—and no arbitrary SQL. https://github.com/replicantos/replicantos",
+      "screenshot": "09-inspectable-database.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo, not live records. An allowlisted table shows bounded rows while protected columns and sensitive tables remain unavailable."
+    },
+    {
+      "id": "mobile-control-plane",
+      "copy": "Self-hosted can still fit in your pocket. ReplicantOS is a responsive, installable PWA for channels, tasks, schedules, runs, files, the Library, database viewer, and settings. https://github.com/replicantos/replicantos",
+      "screenshot": "10-mobile-pwa.png",
+      "alt": "Playwright capture of the deterministic offline synthetic ReplicantOS demo at a narrow viewport, not a live workspace. Mobile navigation exposes the implemented product areas."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "verifiedAt": "2026-08-02",
+  "actions": [
+    {
+      "action": "actions/checkout",
+      "version": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "source": "https://github.com/actions/checkout/releases/tag/v7.0.1"
+    },
+    {
+      "action": "actions/setup-node",
+      "version": "v7.0.0",
+      "sha": "820762786026740c76f36085b0efc47a31fe5020",
+      "source": "https://github.com/actions/setup-node/releases/tag/v7.0.0"
+    },
+    {
+      "action": "pnpm/action-setup",
+      "version": "v6.0.9",
+      "sha": "008330803749db0355799c700092d9a85fd074e9",
+      "source": "https://github.com/pnpm/action-setup/releases/tag/v6.0.9"
+    },
+    {
+      "action": "actions/upload-artifact",
+      "version": "v7.0.1",
+      "sha": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "source": "https://github.com/actions/upload-artifact/releases/tag/v7.0.1"
+    }
+  ],
+  "allowedWorkflowSecrets": [
+    "REPLICANTOS_PRIVATE_TERMS",
+    "REPLICANTOS_RELEASE_APPROVALS_JSON"
+  ]
+}

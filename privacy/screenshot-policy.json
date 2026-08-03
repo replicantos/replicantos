@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "frames": [
+    { "name": "01-chat-continuity.png", "width": 1600, "height": 900 },
+    { "name": "02-four-harnesses.png", "width": 1600, "height": 900 },
+    { "name": "03-run-control.png", "width": 1600, "height": 900 },
+    { "name": "04-scheduled-work.png", "width": 1600, "height": 900 },
+    { "name": "05-users-access.png", "width": 1600, "height": 900 },
+    { "name": "06-shared-tasks.png", "width": 1600, "height": 900 },
+    { "name": "07-document-library.png", "width": 1600, "height": 900 },
+    { "name": "08-safe-files.png", "width": 1600, "height": 900 },
+    { "name": "09-inspectable-database.png", "width": 1600, "height": 900 },
+    { "name": "10-mobile-pwa.png", "width": 390, "height": 844 }
+  ]
+}

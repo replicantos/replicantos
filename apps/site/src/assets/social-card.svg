@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">ReplicantOS</title>
+  <desc id="description">Your AI agents. One operating system. Free, open-source, and self-hosted.</desc>
+  <defs>
+    <linearGradient id="glow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d9e5ff" stop-opacity=".12"/>
+      <stop offset=".55" stop-color="#8597bb" stop-opacity=".035"/>
+      <stop offset="1" stop-color="#070808" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" fill="none" stroke="#dce6ff" stroke-opacity=".035"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#070808"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="930" cy="165" r="420" fill="url(#glow)"/>
+  <path d="M0 58h1200M0 572h1200" stroke="#f4f7ff" stroke-opacity=".09"/>
+
+  <g transform="translate(72 90)">
+    <rect width="46" height="46" rx="4" fill="none" stroke="#cbd8f1" stroke-opacity=".24"/>
+    <path d="M12 13h22M12 23h22M12 33h22" stroke="#dce6ff" stroke-width="3" stroke-linecap="square" stroke-opacity=".72"/>
+    <circle cx="34" cy="13" r="3" fill="#dce6ff"/>
+    <circle cx="20" cy="23" r="3" fill="#95a9cf"/>
+    <circle cx="28" cy="33" r="3" fill="#7488ad"/>
+  </g>
+
+  <text x="140" y="121" fill="#f4f7ff" fill-opacity=".76" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" letter-spacing="5">REPLICANT<tspan fill="#aebfdf">OS</tspan></text>
+  <text x="1118" y="119" text-anchor="end" fill="#dce6ff" fill-opacity=".28" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2">PUBLIC SYSTEM // 001</text>
+
+  <text x="72" y="260" fill="#f7f9ff" fill-opacity=".94" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="400" letter-spacing="-2">Your AI agents.</text>
+  <text x="72" y="342" fill="#b8c6e1" fill-opacity=".56" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="300" letter-spacing="-2">One operating system.</text>
+  <text x="76" y="405" fill="#e6edff" fill-opacity=".42" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="300">A local control plane for persistent agents, teams, and tools.</text>
+
+  <g transform="translate(72 478)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="1.5">
+    <rect width="1056" height="58" fill="#dce6ff" fill-opacity=".025" stroke="#dce6ff" stroke-opacity=".1"/>
+    <circle cx="25" cy="29" r="4" fill="#98d9a6" fill-opacity=".8"/>
+    <text x="43" y="34" fill="#dce6ff" fill-opacity=".52">FREE / OPEN SOURCE / SELF-HOSTED / MIT</text>
+    <text x="1030" y="34" text-anchor="end" fill="#dce6ff" fill-opacity=".3">CODEX · CLAUDE · OPENCODE · GROK</text>
+  </g>
+
+  <text x="72" y="606" fill="#dce6ff" fill-opacity=".22" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="2">REPLICANTOS.COM</text>
+</svg>

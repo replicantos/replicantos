@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "head": "0000000000000000000000000000000000000000",
+  "repository": "replicantos/replicantos",
+  "license": "MIT",
+  "distribution": "self-hosted-only",
+  "credentialExposureDisposition": null,
+  "githubNamespaceAuthorizationConfirmed": false,
+  "approvals": [
+    {
+      "reviewerId": "reviewer-one",
+      "reviewedHead": "0000000000000000000000000000000000000000",
+      "privacyTreeAndHistoryReviewed": false,
+      "syntheticMediaReviewed": false,
+      "reviewedCredentialExposureDisposition": null,
+      "selfHostedOnlyReviewed": false,
+      "dependencyLicensesReviewed": false,
+      "reviewedLicenseExceptions": []
+    },
+    {
+      "reviewerId": "reviewer-two",
+      "reviewedHead": "0000000000000000000000000000000000000000",
+      "privacyTreeAndHistoryReviewed": false,
+      "syntheticMediaReviewed": false,
+      "reviewedCredentialExposureDisposition": null,
+      "selfHostedOnlyReviewed": false,
+      "dependencyLicensesReviewed": false,
+      "reviewedLicenseExceptions": []
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="ReplicantOS product, architecture, access-control, and release documentation."
+    />
+    <meta name="theme-color" content="#070808" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ReplicantOS" />
+    <meta property="og:title" content="ReplicantOS Documentation" />
+    <meta
+      property="og:description"
+      content="The public operating model and security boundaries for ReplicantOS."
+    />
+    <meta property="og:url" content="https://replicantos.com/docs/" />
+    <meta
+      property="og:image"
+      content="https://replicantos.com/assets/social-card.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="ReplicantOS — Your AI agents. One operating system."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://replicantos.com/assets/social-card.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="ReplicantOS — Your AI agents. One operating system."
+    />
+    <title>Documentation — ReplicantOS</title>
+    <link rel="canonical" href="https://replicantos.com/docs/" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/site.css" />
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main-content">Skip to documentation</a>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <div class="system-line" role="status" aria-label="Documentation status">
+      <span>PUBLIC DOCUMENTATION</span>
+      <span aria-hidden="true">/</span>
+      <span>V0.1 PRE-RELEASE</span>
+      <span aria-hidden="true">/</span>
+      <span>RELEASE GATE OPEN</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="ReplicantOS home">
+        <img
+          src="/assets/wordmark.svg"
+          width="330"
+          height="64"
+          alt="ReplicantOS"
+        />
+      </a>
+      <nav class="desktop-navigation" aria-label="Documentation navigation">
+        <a href="#concepts">Concepts</a>
+        <a href="#access">Access</a>
+        <a href="#harnesses">Harnesses</a>
+        <a href="#installation">Install</a>
+        <a href="#status">Status</a>
+      </nav>
+      <a class="header-cta" href="{{GITHUB_URL}}">
+        View source <span aria-hidden="true">↗</span>
+      </a>
+      <details class="mobile-navigation" data-mobile-navigation>
+        <summary aria-label="Open documentation navigation">
+          <span></span><span></span>
+        </summary>
+        <nav aria-label="Mobile documentation navigation">
+          <a href="#concepts">Concepts</a>
+          <a href="#access">Access</a>
+          <a href="#harnesses">Harnesses</a>
+          <a href="#data-boundaries">Data boundaries</a>
+          <a href="#installation">Installation</a>
+          <a href="#status">Release status</a>
+          <a href="/">Product</a>
+        </nav>
+      </details>
+    </header>
+
+    <main class="docs-layout" id="main-content">
+      <aside class="docs-index" aria-label="On this page">
+        <p>DOCS / 001</p>
+        <strong>Public v0.1</strong>
+        <nav>
+          <a href="#overview">Overview</a>
+          <a href="#concepts">Core concepts</a>
+          <a href="#access">Identity &amp; access</a>
+          <a href="#harnesses">Harness contract</a>
+          <a href="#data-boundaries">Data boundaries</a>
+          <a href="#deployment">Deployment model</a>
+          <a href="#installation">Installation</a>
+          <a href="#status">Release status</a>
+        </nav>
+      </aside>
+
+      <article class="docs-content">
+        <header class="docs-hero" id="overview">
+          <p class="eyebrow">PUBLIC OPERATING MODEL</p>
+          <h1>One place for agents<br /><span>to keep working.</span></h1>
+          <p class="docs-lede">
+            ReplicantOS is a self-hosted control plane for persistent AI agents.
+            It gives people, Replicants, and several agent harnesses one
+            durable, permission-checked workspace without turning provider
+            credentials or private machine data into a hosted service.
+          </p>
+          <div class="docs-status" aria-label="Public v0.1 status">
+            <span>FREE / MIT</span>
+            <span>SELF-HOSTED</span>
+            <span>ONE WORKSPACE / INSTALL</span>
+            <span>SQLITE + SAFE ROOTS</span>
+            <span>TELEMETRY OFF</span>
+          </div>
+        </header>
+
+        <section
+          class="docs-section"
+          id="concepts"
+          aria-labelledby="concepts-title"
+        >
+          <div class="docs-section-label"><span>01</span> SYSTEM</div>
+          <div>
+            <h2 id="concepts-title">Core concepts</h2>
+            <p>
+              The public edition starts with a small set of durable primitives.
+              Features compose from these records instead of hiding work inside
+              provider-specific sessions.
+            </p>
+            <dl class="concept-grid">
+              <div>
+                <dt>Replicant</dt>
+                <dd>
+                  An agent identity with a persona, workspace, permissions, and
+                  default harness.
+                </dd>
+              </div>
+              <div>
+                <dt>Harness</dt>
+                <dd>
+                  A local agent runtime—Codex, Claude Agent SDK, OpenCode, or
+                  Grok Build.
+                </dd>
+              </div>
+              <div>
+                <dt>Channel</dt>
+                <dd>
+                  A persistent conversation boundary shared by authorized people
+                  and Replicants.
+                </dd>
+              </div>
+              <div>
+                <dt>Task</dt>
+                <dd>
+                  Durable work with status, priority, notes, and optional
+                  Replicant assignment.
+                </dd>
+              </div>
+              <div>
+                <dt>Schedule</dt>
+                <dd>
+                  A timezone-aware recurring instruction with run history,
+                  retry, and audit context.
+                </dd>
+              </div>
+              <div>
+                <dt>Artifact</dt>
+                <dd>
+                  Approved Markdown or text metadata indexed from a bounded
+                  library root with a hash-verified raw preview.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section
+          class="docs-section"
+          id="access"
+          aria-labelledby="access-title"
+        >
+          <div class="docs-section-label"><span>02</span> POLICY</div>
+          <div>
+            <h2 id="access-title">Identity and access</h2>
+            <p>
+              A first-run owner is created locally; there is no default account.
+              Protected HTTP resources, realtime connections, database reads,
+              and file operations are evaluated on the server. Scheduled runs
+              retain the requesting actor for authorization and audit.
+            </p>
+            <div class="role-table" role="table" aria-label="Workspace roles">
+              <div role="row">
+                <strong role="columnheader">Role</strong>
+                <strong role="columnheader">Operating boundary</strong>
+              </div>
+              <div role="row">
+                <span role="cell">Owner</span
+                ><span role="cell"
+                  >Workspace lifecycle and explicit high-risk
+                  administration.</span
+                >
+              </div>
+              <div role="row">
+                <span role="cell">Admin</span
+                ><span role="cell"
+                  >Users, resources, schedules, and policy within owner-only
+                  ceilings.</span
+                >
+              </div>
+              <div role="row">
+                <span role="cell">Member</span
+                ><span role="cell"
+                  >Granted channels, Replicants, tasks, documents, and
+                  interactions.</span
+                >
+              </div>
+            </div>
+            <p class="docs-callout">
+              Client-side visibility is never authorization. Deny is the
+              default, explicit deny wins, and a grant cannot exceed its human
+              role ceiling.
+            </p>
+          </div>
+        </section>
+
+        <section
+          class="docs-section"
+          id="harnesses"
+          aria-labelledby="harnesses-title"
+        >
+          <div class="docs-section-label"><span>03</span> RUNTIME</div>
+          <div>
+            <h2 id="harnesses-title">One lifecycle. Four adapters.</h2>
+            <p>
+              The production server registers adapters for Codex, Claude Agent
+              SDK, OpenCode, and Grok Build behind one durable runtime. Adapter
+              output, tool activity, approval requests, usage, and failures are
+              normalized internally. Authenticated approval decisions,
+              authorized cancellation, and doctor results are exposed through
+              server routes and the live UI. Channels store the final Replicant
+              reply; v0.1 does not promise token-by-token live UI streaming.
+            </p>
+            <p class="docs-callout">
+              HOST AVAILABILITY: a provider is usable only when its supported
+              host runtime and provider-native authentication are present.
+              On-demand diagnostics report bounded local adapter checks; they do
+              not provision tooling or credentials. The separately licensed
+              Claude Agent SDK is optional and is not installed by the base MIT
+              checkout.
+            </p>
+            <div class="harness-doc-grid">
+              <article>
+                <small>STABLE / APP-SERVER STDIO</small>
+                <h3>Codex</h3>
+                <p>
+                  Host-installed app-server threads, turns, approvals, and
+                  streamed lifecycle events.
+                </p>
+              </article>
+              <article>
+                <small>STABLE / OPTIONAL SDK</small>
+                <h3>Claude Agent SDK</h3>
+                <p>
+                  Explicit setting sources, permission callbacks, and scrubbed
+                  subprocess environment after separate SDK installation.
+                </p>
+              </article>
+              <article>
+                <small>BETA / ACP STDIO</small>
+                <h3>OpenCode</h3>
+                <p>
+                  Host-installed <code>opencode acp</code> sessions behind the
+                  same capability contract.
+                </p>
+              </article>
+              <article>
+                <small>BETA / ACP STDIO</small>
+                <h3>Grok Build</h3>
+                <p>
+                  Host-installed CLI sessions with normalized events and bounded
+                  diagnostics.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="docs-section"
+          id="data-boundaries"
+          aria-labelledby="boundaries-title"
+        >
+          <div class="docs-section-label"><span>04</span> DATA</div>
+          <div>
+            <h2 id="boundaries-title">Data boundaries</h2>
+            <ul class="boundary-list">
+              <li>
+                <strong>SQLite owns control-plane records.</strong
+                ><span
+                  >Identity, grants, channels, messages, tasks, schedules, runs,
+                  approvals, notifications, and audit.</span
+                >
+              </li>
+              <li>
+                <strong>Safe roots own editable content.</strong
+                ><span
+                  >Real-path containment rejects hidden paths, symlinks, runtime
+                  data, authentication stores, and root escapes.</span
+                >
+              </li>
+              <li>
+                <strong>Provider credentials stay provider-native.</strong
+                ><span
+                  >ReplicantOS does not copy a harness login or API key into its
+                  database by default.</span
+                >
+              </li>
+              <li>
+                <strong>The database viewer is not a SQL console.</strong
+                ><span
+                  >Only allowlisted tables and columns are readable through
+                  bounded, masked queries.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section
+          class="docs-section"
+          id="deployment"
+          aria-labelledby="deployment-title"
+        >
+          <div class="docs-section-label"><span>05</span> HOST</div>
+          <div>
+            <h2 id="deployment-title">Deployment model</h2>
+            <p>
+              Public v0.1 targets one self-hosted workspace per installation,
+              SQLite in WAL mode, and one server process that owns scheduling,
+              authorized final-reply delivery, migrations, and active harness
+              runs. Ubuntu is the primary production target; macOS remains a
+              supported development host.
+            </p>
+            <pre
+              class="architecture-map"
+              aria-label="ReplicantOS deployment structure"
+            ><code>browser / PWA
+      │ HTTPS + WebSocket
+      ▼
+ReplicantOS server ─── SQLite / audit
+      │
+      ├── approved workspace roots
+      └── adapters → host-installed providers</code></pre>
+          </div>
+        </section>
+
+        <section
+          class="docs-section"
+          id="installation"
+          aria-labelledby="installation-title"
+        >
+          <div class="docs-section-label"><span>06</span> INSTALL</div>
+          <div>
+            <h2 id="installation-title">Build once. Start explicitly.</h2>
+            <p>
+              The host-native source path keeps local harness executables and
+              their provider-native credentials outside a container and out of
+              the ReplicantOS database. It requires Node.js 22 or newer and the
+              pnpm version pinned by the repository.
+            </p>
+            <pre
+              class="architecture-map installation-commands"
+              aria-label="Pre-release ReplicantOS source installation commands"
+            ><code>git clone https://github.com/replicantos/replicantos.git
+cd replicantos
+corepack enable
+pnpm install --frozen-lockfile
+cp .env.example .env
+pnpm build
+pnpm run doctor
+pnpm start</code></pre>
+            <p class="docs-callout">
+              PRE-RELEASE: this path is available for review, but it is not a
+              supported tagged release until the public release gate closes. The
+              repository may be unavailable before publication.
+            </p>
+            <p>
+              The default listener is <code>127.0.0.1:8787</code>. There is no
+              default account; the first browser visit creates the owner. For
+              network access, keep the server on loopback, terminate TLS at a
+              same-host reverse proxy, and configure one exact public HTTPS
+              origin. ReplicantOS rejects plain-HTTP network exposure.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="{{GITHUB_URL}}/blob/main/docs/INSTALLATION.md"
+                ><span>Full operator guide</span
+                ><span class="button-arrow" aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="docs-section docs-release"
+          id="status"
+          aria-labelledby="status-title"
+        >
+          <div class="docs-section-label"><span>07</span> RELEASE</div>
+          <div>
+            <h2 id="status-title">The release gate is still open.</h2>
+            <p>
+              The source installation path is documented for review, but it is
+              not a supported release yet. A public release still requires a
+              committed clean head, zero known personal or private data,
+              promoted and manually reviewed synthetic launch visuals,
+              clean-clone archive verification, credential-exposure and GitHub
+              namespace dispositions, and two independent privacy approvals.
+            </p>
+            <div
+              class="release-checks"
+              aria-label="Release readiness requirements"
+            >
+              <span>✓ V0.1 SURFACE + MIT</span>
+              <span>◌ CLEAN-CLONE AUDIT</span>
+              <span>◌ CREDENTIALS + NAMESPACE</span>
+              <span>◌ TWO-PERSON REVIEW</span>
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="{{GITHUB_URL}}"
+                ><span>Follow the build</span
+                ><span class="button-arrow" aria-hidden="true">↗</span></a
+              >
+              <a class="button button-secondary" href="/"
+                ><span>Explore the system</span
+                ><span class="button-arrow" aria-hidden="true">←</span></a
+              >
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/" aria-label="ReplicantOS home">
+        <img
+          src="/assets/wordmark.svg"
+          width="330"
+          height="64"
+          alt="ReplicantOS"
+        />
+      </a>
+      <p>PUBLIC V0.1 DOCUMENTATION.</p>
+      <nav aria-label="Footer navigation">
+        <a href="{{GITHUB_URL}}">GitHub</a>
+        <a href="/">Product</a>
+        <a href="mailto:admin@replicantos.com">Contact</a>
+        <a href="#access">Security model</a>
+        <a href="#main-content">Back to top ↑</a>
+      </nav>
+      <div class="footer-base">
+        <span>© 2026 REPLICANTOS</span
+        ><span>LOCAL-FIRST / NO TELEMETRY BY DEFAULT</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "name": "replicantos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A self-hosted control plane for persistent AI agents.",
+  "license": "MIT",
+  "homepage": "https://replicantos.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/replicantos/replicantos.git"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "ci:policy": "node scripts/check-workflows.mjs",
+    "dev": "pnpm --parallel --filter @replicantos/server --filter @replicantos/web dev",
+    "doctor": "node scripts/start.mjs --doctor",
+    "format:check": "prettier --check .",
+    "lint": "pnpm -r lint",
+    "launch:check": "node scripts/validate-launch-content.mjs",
+    "release:artifacts": "node scripts/generate-dependency-artifacts.mjs",
+    "release:preflight": "REPLICANTOS_ALLOW_RELEASE_PREFLIGHT=1 node scripts/release-verify.mjs --preflight",
+    "release:verify": "node scripts/release-verify.mjs",
+    "screenshots:promote": "REPLICANTOS_PROMOTE_SCREENSHOTS=1 node scripts/promote-screenshots.mjs",
+    "security:audit": "pnpm audit --audit-level=high",
+    "typecheck": "pnpm -r typecheck",
+    "start": "node scripts/start.mjs",
+    "test": "pnpm test:operator && pnpm -r --filter '!@replicantos/e2e' test",
+    "test:operator": "node --test scripts/start.test.mjs",
+    "test:privacy": "node --test scripts/privacy-check.test.mjs",
+    "test:release": "node --test scripts/privacy-check.test.mjs scripts/png.test.mjs scripts/promote-screenshots.test.mjs scripts/generate-dependency-artifacts.test.mjs scripts/release-verify.test.mjs scripts/check-workflows.test.mjs",
+    "test:e2e": "pnpm --filter @replicantos/e2e test",
+    "privacy:check": "node scripts/privacy-check.mjs .",
+    "verify": "pnpm privacy:check && pnpm ci:policy && pnpm test:release && pnpm launch:check && pnpm format:check && pnpm build && pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@replicantos/protocol",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Versioned public wire and harness contracts for ReplicantOS.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./harness": {
+      "types": "./dist/harness.d.ts",
+      "default": "./dist/harness.js"
+    },
+    "./http": {
+      "types": "./dist/http.d.ts",
+      "default": "./dist/http.js"
+    },
+    "./realtime": {
+      "types": "./dist/realtime.d.ts",
+      "default": "./dist/realtime.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.compatibility.json",
+    "test": "pnpm run build && tsc -p tsconfig.compatibility.json && node --test test/*.test.mjs"
+  }
+}

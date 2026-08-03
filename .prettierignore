@@ -1,0 +1,8 @@
+# Code-generated and vector media are validated by dedicated asset checks.
+**/*.png
+**/*.svg
+
+# Generated output and runtime state.
+**/dist/
+artifacts/
+release/artifacts/

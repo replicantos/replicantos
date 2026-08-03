@@ -1,0 +1,24 @@
+{
+  "name": "@replicantos/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.json",
+    "capture": "REPLICANTOS_CAPTURE_SCREENSHOTS=1 playwright test specs/capture.spec.ts",
+    "capture:landing": "REPLICANTOS_CAPTURE_SCREENSHOTS=1 playwright test --config=playwright.site.config.ts specs/capture-landing.spec.ts",
+    "generate:pwa-icons": "node scripts/generate-pwa-icons.mjs",
+    "generate:site-social-card": "node scripts/generate-site-social-card.mjs",
+    "lint": "tsc --noEmit -p tsconfig.json",
+    "test": "playwright test specs/app.spec.ts specs/landing.spec.ts specs/live-app.spec.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@replicantos/harnesses": "workspace:*",
+    "@replicantos/protocol": "workspace:*",
+    "@replicantos/server": "workspace:*",
+    "@types/node": "26.1.2",
+    "typescript": "7.0.2"
+  }
+}

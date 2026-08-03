@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 64" role="img">
+  <title>ReplicantOS</title>
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="#0c0e0e" stroke="#f3f4ef" stroke-width="2"/>
+  <path d="M19 16h18l8 8v16l-8 8H19V16Z" fill="none" stroke="#f3f4ef" stroke-width="3"/>
+  <path d="M27 24h8l3 3v5l-3 3h-8V24Zm8 11 6 10" fill="none" stroke="#f3f4ef" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="18" cy="48" r="2" fill="#f3f4ef"/>
+  <text x="76" y="40" fill="#f3f4ef" font-family="Arial Narrow, Helvetica Neue, sans-serif" font-size="27" font-weight="700" letter-spacing="3">REPLICANT</text>
+  <text x="264" y="40" fill="#a6aaa5" font-family="SFMono-Regular, Consolas, monospace" font-size="18" letter-spacing="2">OS</text>
+</svg>

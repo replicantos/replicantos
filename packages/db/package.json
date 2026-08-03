@@ -1,0 +1,30 @@
+{
+  "name": "@replicantos/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SQLite persistence, migrations, repositories, and deterministic demo data for ReplicantOS.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm build && node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@replicantos/core": "workspace:*",
+    "@replicantos/runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.5.2",
+    "typescript": "7.0.2"
+  }
+}

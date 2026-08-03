@@ -1,0 +1,41 @@
+{
+  "name": "@replicantos/harnesses",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Capability-aware local agent harness adapters for ReplicantOS.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "default": "./dist/testing.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "lint": "tsc -b tsconfig.json --pretty false",
+    "typecheck": "tsc -b tsconfig.json --pretty false",
+    "test": "pnpm run build && node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@replicantos/protocol": "workspace:*"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/claude-agent-sdk": "*"
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/claude-agent-sdk": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0"
+  }
+}

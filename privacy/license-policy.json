@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "allowedSpdxLicenses": [
+    "0BSD",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BlueOak-1.0.0",
+    "CC0-1.0",
+    "ISC",
+    "MIT",
+    "MIT OR Apache-2.0",
+    "MIT-0",
+    "MPL-2.0",
+    "Unlicense"
+  ],
+  "lockedPackageLicenses": [
+    {
+      "packagePattern": "^@emnapi/(?:core|runtime|wasi-threads)$",
+      "versions": ["1.11.3", "1.2.3"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@emnapi/runtime"
+    },
+    {
+      "packagePattern": "^@napi-rs/wasm-runtime$",
+      "versions": ["0.2.12"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@napi-rs/wasm-runtime"
+    },
+    {
+      "packagePattern": "^@esbuild/[a-z0-9-]+$",
+      "versions": ["0.28.1"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "esbuild"
+    },
+    {
+      "packagePattern": "^@node-rs/argon2-[a-z0-9-]+$",
+      "versions": ["2.0.2"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "@node-rs/argon2"
+    },
+    {
+      "packagePattern": "^@rolldown/binding-[a-z0-9-]+$",
+      "versions": ["1.2.1"],
+      "declaredLicense": "MIT",
+      "sourcePackage": "rolldown"
+    },
+    {
+      "packagePattern": "^@typescript/typescript-[a-z0-9-]+$",
+      "versions": ["7.0.2"],
+      "declaredLicense": "Apache-2.0",
+      "sourcePackage": "typescript"
+    },
+    {
+      "packagePattern": "^lightningcss-[a-z0-9-]+$",
+      "versions": ["1.33.0"],
+      "declaredLicense": "MPL-2.0",
+      "sourcePackage": "lightningcss"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "anthropic-claude-agent-sdk-terms",
+      "packagePattern": "^@anthropic-ai/claude-agent-sdk(?:-(?:darwin|linux|win32)-(?:arm64|x64)(?:-musl)?)?$",
+      "version": "0.3.220",
+      "declaredLicense": "Unknown",
+      "concludedLicense": "LicenseRef-Anthropic-Claude-Agent-SDK-Terms",
+      "termsUrl": "https://code.claude.com/docs/en/legal-and-compliance",
+      "rationale": "The package ships a proprietary LICENSE.md and does not declare an SPDX identifier. This exact version is optional and must be reviewed again on every upgrade.",
+      "requiresReleaseApproval": true
+    }
+  ]
+}
