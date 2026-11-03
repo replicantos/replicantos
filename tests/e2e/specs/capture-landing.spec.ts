@@ -21,7 +21,7 @@ test("capture the public landing page on desktop and mobile", async ({
   await expect(
     page.getByRole("heading", {
       level: 1,
-      name: /Your AI agents.*One operating system/i,
+      name: /A home for your Replicants/i,
     }),
   ).toBeVisible();
   await expectSyntheticDom(page);

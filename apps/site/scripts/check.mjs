@@ -21,12 +21,14 @@ const javascript = await readFile(
 );
 
 const requiredSections = [
+  "product",
+  "proof",
   "harnesses",
   "persistence",
-  "schedules",
-  "team",
   "inspectability",
+  "schedules",
   "security",
+  "install",
 ];
 
 for (const section of requiredSections) {

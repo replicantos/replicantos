@@ -46,9 +46,10 @@ test("the landing page states the complete public capability story", () => {
 test("public copy matches the released v0.1.0 surface", () => {
   const publicCopy = `${html}\n${docsHtml}`;
   assert.match(html, /V0\.1\.0 · MIT · SELF-HOSTED/u);
-  assert.match(html, /SYNTHETIC RUN DETAIL/u);
-  assert.match(html, />\s*runs · ALLOWLIST · LIMIT 50/u);
-  assert.match(html, /on-demand provider\s+diagnostics/iu);
+  assert.match(html, /masked,\s+allowlisted\s+SQLite\s+viewer/iu);
+  assert.match(html, /no\s+arbitrary\s+SQL/iu);
+  assert.match(html, /On-demand harness\s+diagnostics/iu);
+  assert.match(html, /do\s+not\s+prove\s+your\s+login\s+works/iu);
   assert.match(docsHtml, /One lifecycle\. Four adapters\./u);
   assert.match(docsHtml, /Claude Agent SDK is\s+optional/iu);
   assert.match(docsHtml, /BETA \/ ACP STDIO/u);
@@ -74,6 +75,7 @@ test("the landing page ships the promoted synthetic product screenshots", async 
     "02-four-harnesses.png",
     "03-run-control.png",
     "04-scheduled-work.png",
+    "06-shared-tasks.png",
     "08-safe-files.png",
   ]) {
     assert.match(html, new RegExp(`/assets/screenshots/${fileName}`, "u"));
@@ -87,6 +89,54 @@ test("the landing page ships the promoted synthetic product screenshots", async 
     html,
     />\s*REPLICANT<span class="brand-os">OS<\/span><\/span\s*>/u,
   );
+});
+
+test("harness cards carry the README maturity labels and nothing else", () => {
+  const harnessSection = html.slice(
+    html.indexOf('id="harnesses"'),
+    html.indexOf('id="persistence"'),
+  );
+  for (const [name, status] of [
+    ["Codex", "Stable"],
+    ["Claude Agent SDK", "Stable · Optional"],
+    ["OpenCode", "Beta"],
+    ["Grok Build", "Beta"],
+  ]) {
+    assert.match(
+      harnessSection,
+      new RegExp(
+        `class="status status-[a-z]+">${status}</span>\\s*</div>\\s*<h3>${name}</h3>`,
+        "u",
+      ),
+    );
+  }
+  assert.equal(harnessSection.match(/<h3>/gu)?.length, 4);
+  for (const page of [html, docsHtml]) {
+    assert.doesNotMatch(page, /antigravity|cursor/iu);
+  }
+});
+
+test("the landing page copy avoids unsupported claims and em dashes", () => {
+  assert.doesNotMatch(html, /\u2014/u);
+  assert.doesNotMatch(
+    html,
+    /desktop app|mobile approval|download for|vault|sandbox|journal|needs-you|SaaS/iu,
+  );
+  assert.doesNotMatch(html, /buzzing|stellar|dive into|crush|load-bearing/iu);
+});
+
+test("social proof quotes come only from the synthetic demo Replicants", () => {
+  const proofSection = html.slice(
+    html.indexOf('id="proof"'),
+    html.indexOf('id="harnesses"'),
+  );
+  const authors = [
+    ...proofSection.matchAll(
+      /<p class="quote-author">[\s\S]*?<strong>([^<]+)<\/strong/gu,
+    ),
+  ].map((match) => match[1]);
+  assert.deepEqual(authors, ["Atlas", "Sable", "Forge", "Orbit"]);
+  assert.match(proofSection, /No humans were quoted/u);
 });
 
 test("the documentation destination is a real, status-honest first-party page", () => {
@@ -114,7 +164,7 @@ test("the landing page presents an honest self-hosted installation path", () => 
   assert.match(html, /pnpm build/u);
   assert.match(html, /pnpm run doctor/u);
   assert.match(html, /pnpm start/u);
-  assert.match(html, /never hosts a\s+workspace or agent session/iu);
+  assert.match(html, /never\s+hosts\s+a\s+workspace\s+or\s+agent\s+session/iu);
   assert.match(html, /SUPPORTED SOURCE PATH/u);
   assert.doesNotMatch(html, /cloud-hosted|managed workspace|sign up/iu);
 });
